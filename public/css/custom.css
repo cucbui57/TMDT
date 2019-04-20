@@ -1,0 +1,5 @@
+.navbar-nav h5>a{text-decoration:none;}
+.copyright{color:#777;}
+.copyright > a{text-decoration:none;color:#777;}
+.dropdown-menu .yamm-content h5 > a{display:block;}
+@media (min-width:@screen-md-min){.pull-right-md{float:right;}
