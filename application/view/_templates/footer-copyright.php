@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h3>Đồng phục Vân Thịnh</h3>
+                    <h3>Đồng phục</h3>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <h4>Trang</h4>
@@ -47,21 +47,15 @@
 
                 <!-- <div class="col-md-5 col-sm-5 col-xs-5"> -->
                     <h4>Địa chỉ</h4>
-                    <p><strong>CÔNG TY TNHH PHÁT TRIỂN VÂN THỊNH</strong></p>
-                    <p><strong>Văn phòng giao dịch:</strong> 85/56 Hạ Đình, quận Thanh Xuân, TP. Hà Nội.</p>
-                    <p><strong>Trụ sở chính:</strong> Thôn Nội Am, xã Liên Ninh, huyện Thanh Trì, TP. Hà Nội</p>
+                    <p><strong>CÔNG TY TNHH</strong></p>
+                    <p><strong>Văn phòng giao dịch:</strong></p>
+                    <p><strong>Trụ sở chính:</strong> </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                 
                 <!-- <div class="col-md-5 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"> -->
                     <h4>Liên hệ</h4>
-                    <p><strong>Hotline:</strong> 0396.787.758 - 0979.351.576<br/><strong>Zalo:</strong> 0396.787.758 - 0979.351.576<br/><strong>Email:</strong> dongphucvanthinh@gmail.com <br/><strong>Website: </strong>www.dongphucvanthinh.com</p>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <p class="copyright" style="color: #bfbfbf">Template by <a href="https://bootstrapious.com/e-commerce-templates" style="color: #bfbfbf">Bootstrapious</a> & <a href="https://fity.cz" style="color: #bfbfbf">Fity</a>
-                    </p>
-    
+                    <p><strong>Hotline:</strong> <br/><strong>Email:</strong>  <br/><strong>Website: </strong></p>
                 </div>
 
             </div>

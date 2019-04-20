@@ -330,8 +330,8 @@ class Sanpham extends Controller
         } else {
             $limit = $_GET['page'];
             $limit = (int)$limit;
-            if($limit > (($total/16)+1)){
-                $limit = CEIL($total/16);
+            if($limit > (($total/9)+1)){
+                $limit = CEIL($total/9);
                 header('Location:'.URL.'sanpham/'.$this->url_active[2].'?page='.($limit));
             }
             if($limit < 1){

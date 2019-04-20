@@ -2,11 +2,11 @@
     <div class="container">
         <div class="col-md-6 offer">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 pull-right">
             <ul class="menu">
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Đăng nhập</a>
                 </li>
-                <li><a href="register.html">Register</a>
+                <li><a href="register.html">Đăng kí</a>
                 </li>
             </ul>
         </div>
@@ -17,26 +17,24 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="Login">Customer login</h4>
+                    <h4 class="modal-title" id="Login">Đăng nhập</h4>
                 </div>
                 <div class="modal-body">
                     <form action="customer-orders.html" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email-modal" placeholder="email">
+                            <input type="text" class="form-control" id="email-modal" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password-modal" placeholder="password">
+                            <input type="password" class="form-control" id="password-modal" placeholder="Mật khẩu">
                         </div>
 
                         <p class="text-center">
-                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Đăng nhập</button>
                         </p>
 
                     </form>
 
-                    <p class="text-center text-muted">Not registered yet?</p>
-                    <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-
+                    <p class="text-center text-muted">Chưa có tài khoản ? Đăng kí <a href="register.html"><strong>tại đây</strong></a></p>
                 </div>
             </div>
         </div>
@@ -46,24 +44,24 @@
 <div class="navbar navbar-default yamm" role="navigation" id="navbar">
     <div class="container">
         <div class="navbar-header">
-                <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
-                    <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
-                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+            <a class="navbar-brand home" href="<?php echo URL ?>">
+                <img src="<?php echo URL ?>img/logo.png" alt="Obaju logo" class="hidden-xs">
+                <img src="<?php echo URL ?>img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju</span>
+            </a>
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only"></span>
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only"></span>
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="btn btn-default navbar-toggle" href="<?php echo URL ?>giohang">
+                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">[3] Giỏ hàng</span>
                 </a>
-                <div class="navbar-buttons">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class="fa fa-align-justify"></i>
-                    </button>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                    <a class="btn btn-default navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
-                    </a>
-                </div>
             </div>
+        </div>
 
         <div class="navbar-collapse collapse" id="navigation">
             <ul class="nav navbar-nav navbar-left">
@@ -135,21 +133,18 @@
                         </li>
                     </ul>
                 </li>
-                <li class="<?php if($this->url_active[2] == "dichvu") echo "active" ?>"><a href="<?php echo URL ?>dichvu">dịch vụ</a></li>
-                <li class="<?php if($this->url_active[2] == "baogia") echo "active" ?>"><a href="<?php echo URL ?>baogia">báo giá</a></li>
-                <li class="<?php if($this->url_active[2] == "lienhe") echo "active" ?>"><a href="<?php echo URL ?>lienhe">liên hệ</a></li>
             </ul>
         </div>
 
         <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                    <a href="<?php echo URL ?>giohang" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">[3] Giỏ hàng</span></a>
                 </div>
 
                 <div class="navbar-collapse collapse right" id="search-not-mobile">
                     <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
+                        <span class="sr-only"></span>
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -160,7 +155,7 @@
 
                 <form class="navbar-form" role="search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm">
                         <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </span>
