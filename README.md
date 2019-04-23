@@ -1,4 +1,3 @@
-![MINI - A naked barebone PHP application](_install/mini-logo.png)
 
 # MINI
 

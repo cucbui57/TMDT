@@ -10,6 +10,7 @@ class Model
             exit('Lỗi kết nối cơ sở dữ liệu!');
         }
     }
+
     public function getProductByLimit($condition, $limit)
     {
         $limit = (string)((int)$limit);
@@ -44,9 +45,82 @@ class Model
     }
 
     public function getRelativeProduct($condition){
-        $sql = "SELECT * FROM tbl_product WHERE category = ? ORDER BY RAND() LIMIT 4";
+        $sql = "SELECT * FROM tbl_product WHERE category = ? AND `status` = 0 ORDER BY RAND() LIMIT 4";
         $query = $this->db->prepare($sql);
         $query->execute([$condition]);
         return $query->fetchAll();
     }
+    
+    public function getAll($table)
+    {
+        $sql = "SELECT * FROM $table";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    public function getListById($table, $key_word, $id)
+    {
+        $sql = "SELECT * FROM $table WHERE $key_word = ?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+        return $query->fetchAll();
+    }
+
+    public function addNew($table, $data){
+       if(is_array($data)){
+           $field="";
+           $val="";
+           $prepare = array();
+           $i=0;
+            foreach ($data as $key => $value) {
+               $i++;
+                if($key !="addNew"){
+                    if($i==1){
+                        $field .=$key;
+                        $val .=" ? ";
+                   }else{
+                       $field .= ','.$key;
+                        $val .=", ? ";
+                    }
+                    $prepare[] = $value;
+                }
+            }
+            $sql = "INSERT INTO ".$table. " ($field) VALUES($val)";
+            $query = $this->db->prepare($sql);
+            $query->execute($prepare);
+            unset($prepare);
+       }
+   }
+///////
+    public function updateList($table, $key_word, $id, $data){
+        if(is_array($data)){
+            $val = "";
+            $i = 0;
+            $prepare = array();
+            foreach ($data as $key => $value) {
+                var_dump($key);
+                if($key != "updateList"){
+                    $i++;
+                    if($key == "status"){
+                        $tmp = 0;
+                    }
+                    if($i == 1){
+                        $val .= $key." = ? ";
+                    } else{
+                        $val .= ", ".$key." = ? ";
+                    }
+                    $prepare[] = $value;
+                }
+            }
+        }
+        $prepare[] = ($id);
+        $sql = "UPDATE $table";
+        $sql .= " SET ".$val;
+        $sql .= " WHERE ".$key_word."= ?";
+        $query = $this->db->prepare($sql);
+        $query->execute($prepare);
+        unset($prepare);
+    }
 }
+///////

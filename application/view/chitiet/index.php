@@ -11,16 +11,16 @@
                         <div class="col-sm-6">
                             <div class="box">
                                 <h1 class="text-center"><?php if (isset($product->name)) echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?></h1>
-                                <p class="price">Giá bán: <?php if (isset($product->price)) echo htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p class="price">Giá bán: <?php if (isset($product->price)) echo htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8'); ?> VNĐ</p>
                                 <div class="form-group col-sm-6">
-                                    <label for="sel1">Size:</label>
-                                    <select class="form-control" id="sel1">
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                        <option>2XL</option>
-                                        <option>3XL</option>
+                                    <label for="size">Size:</label>
+                                    <select class="form-control" id="size">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="2XL">2XL</option>
+                                        <option value="3XL">3XL</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-6">
@@ -28,13 +28,10 @@
                                     <input type="number" class="form-control" id="quantity" value="1">
                                 </div>
                                 <p class="text-center buttons">
-                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a> 
+                                    <a href="javascript:void(0)" onclick="add(<?php echo $product->id ?>)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a> 
                                 </p>
-
-
                             </div>
                         </div>
-
                     </div>
 
 
@@ -99,9 +96,9 @@
                                         </a>
                                         <div class="text">
                                             <h3 style="margin: 10px auto"><a href="<?php if (isset($relative_product->id)) echo URL."sanpham/chitiet/0".htmlspecialchars($relative_product->id, ENT_QUOTES, 'UTF-8');?>"><?php if (isset($relative_product->name)) echo htmlspecialchars($relative_product->name, ENT_QUOTES, 'UTF-8'); ?></a></h3>
-                                            <p class="price"><?php if (isset($relative_product->price)) echo htmlspecialchars($relative_product->price, ENT_QUOTES, 'UTF-8'); ?></p>
+                                            <p class="price"><?php if (isset($relative_product->price)) echo htmlspecialchars($relative_product->price, ENT_QUOTES, 'UTF-8'); ?> VNĐ</p>
                                             <p class="buttons">
-                                                <a href="<?php if (isset($relative_product->id)) htmlspecialchars($relative_product->id, ENT_QUOTES, 'UTF-8');?>" class="btn btn-primary">Chi tiết</a>
+                                                <a href="<?php if (isset($relative_product->id)) echo URL."sanpham/chitiet/0".htmlspecialchars($relative_product->id, ENT_QUOTES, 'UTF-8');?>" class="btn btn-primary">Chi tiết</a>
                                             </p>
                                         </div>
                                     </div>

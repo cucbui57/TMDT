@@ -4,10 +4,17 @@
         </div>
         <div class="col-md-6 pull-right">
             <ul class="menu">
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Đăng nhập</a>
-                </li>
-                <li><a href="register.html">Đăng kí</a>
-                </li>
+                <?php if (isset($_SESSION['isLogin'])){ ?>
+                    <li><a href="<?php echo URL ?>taikhoan">Tài khoản</a>
+                    </li>
+                    <li><a href="<?php echo URL ?>dangxuat">Đăng xuất</a>
+                    </li>
+                <?php } else { ?>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Đăng nhập</a>
+                    </li>
+                    <li><a href="<?php echo URL ?>dangki">Đăng kí</a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
@@ -20,21 +27,25 @@
                     <h4 class="modal-title" id="Login">Đăng nhập</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="customer-orders.html" method="post">
+                    <form action="<?php echo URL ?>dangnhap" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email-modal" placeholder="Email">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password-modal" placeholder="Mật khẩu">
+                            <label for="password">Mật khẩu</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-
-                        <p class="text-center">
-                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Đăng nhập</button>
-                        </p>
-
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="remember" name="remember" value="1">Ghi nhớ</label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" name="btnLogin" class="btn btn-primary"><i class="fa fa-sign-in"></i> Đăng nhập</button>
+                        </div>
                     </form>
 
-                    <p class="text-center text-muted">Chưa có tài khoản ? Đăng kí <a href="register.html"><strong>tại đây</strong></a></p>
+
+                    <p class="text-center text-muted">Chưa có tài khoản ? Đăng kí <a href="<?php echo URL ?>dangki"><strong>tại đây</strong></a></p>
                 </div>
             </div>
         </div>
@@ -57,8 +68,19 @@
                     <span class="sr-only"></span>
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="btn btn-default navbar-toggle" href="<?php echo URL ?>giohang">
-                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">[3] Giỏ hàng</span>
+                <a class="btn btn-default navbar-toggle" href="<?php echo URL ?>giohang" id = 'cartBtn-sm'>
+                    <span id = 'cartNum-sm'>
+                        <i class="fa fa-shopping-cart"></i>
+                        
+                        <?php
+                            if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+                                echo '[';
+                                echo count($_SESSION['cart']);
+                                echo ']';
+                            }
+                        ?>
+                        <span class="hidden-sm">Giỏ hàng</span>
+                    </span>
                 </a>
             </div>
         </div>
@@ -139,7 +161,19 @@
         <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="<?php echo URL ?>giohang" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">[3] Giỏ hàng</span></a>
+                    <a href="<?php echo URL ?>giohang" class="btn btn-primary navbar-btn" id = 'cartBtn'>
+                        <span id = 'cartNum'>
+                            <i class="fa fa-shopping-cart"></i>
+                            <?php
+                                if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+                                    echo '[';
+                                    echo count($_SESSION['cart']);
+                                    echo ']';
+                                }
+                            ?>
+                            <span class="hidden-sm">Giỏ hàng</span>
+                        </span>
+                    </a>
                 </div>
 
                 <div class="navbar-collapse collapse right" id="search-not-mobile">

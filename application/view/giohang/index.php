@@ -3,41 +3,63 @@
         <div class="container">
             <div class="col-md-9" id="basket">
                 <div class="box">
-                    <form method="post" action="checkout1.html">
+                    <form method="post" action="checkout1.html" id="cartList">
                         <h1>Giỏ hàng</h1>
-                        <p class="text-muted">Bạn hiện có <strong>3</strong> sản phẩm trong giỏ hàng.</p>
+                        <p class="text-muted">Bạn hiện có <strong>
+                            <?php
+                                if (isset($_SESSION['cart'])){
+                                    echo count($_SESSION['cart']);
+                                } else {
+                                    echo "0";
+                                }
+                            ?>
+                        </strong> sản phẩm trong giỏ hàng.</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th colspan="2">Sản phẩm</th>
-                                        <th>Quantity</th>
+                                        <th>Size</th>
+                                        <th>Số lượng</th>
                                         <th>Đơn giá</th>
                                         <th colspan="2">Tổng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        if (isset($_SESSION['cart'])) {
+                                            $total = 0;
+                                            foreach ($_SESSION['cart'] as $key => $cart) {
+                                    ?>
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                                                <img src="<?php echo URL . $cart['item']->image ?>" alt="<?php echo $cart['item']->name ?>">
                                             </a>
                                         </td>
-                                        <td><a href="#">White Blouse Armani</a>
+                                        <td><a href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>"><?php echo $cart['item']->name ?></a>
                                         </td>
-                                        <td>
-                                            <input type="number" value="2" class="form-control">
+                                        <td id="size_<?php echo $key ?>" value = "<?php echo $key ?>">
+                                            <?php echo $cart['size'] ?>
                                         </td>
-                                        <td>$123.00</td>
-                                        <td>$246.00</td>
-                                        <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                        <td class="form-inline">
+                                            <input disabled class="form-control" type="text" id="quantity_<?php echo $key ?>" name="quantity_<?php echo $key ?>" autocomplete="off" value="<?php echo $cart["quantity"] ?>">
+                                            <a href="javascript:void(0)" onclick="downItem('<?php echo $key ?>')" class="btn btn-default">-</a>
+                                            <a href="javascript:void(0)" onclick="upItem('<?php echo $key ?>')" class="btn btn-default"> + </a>
+                                        </td>
+                                        <td><?php echo $cart['item']->price ?></td>
+                                        <td><?php echo $subtotal = $cart['item']->price *  $cart['quantity'] ?></td>
+                                        <td><a class="btn btn-mini btn-danger" onclick="deleteItem('<?php echo $key ?>')" href="javascript:void(0)" type="button"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
+                                    <?php
+                                        $total += $subtotal;
+                                    } } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th colspan="5">Tổng</th>
-                                        <th colspan="2">$446.00</th>
+                                        <th colspan="2"><?php echo $total ?></th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -92,24 +114,25 @@
                         <h3>Hóa đơn</h3>
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="checkout-cart">
                         <table class="table">
+                            
                             <tbody>
                                 <tr>
                                     <td>Tổng tiền</td>
-                                    <th>$446.00</th>
+                                    <th><?php echo $total ?></th>
                                 </tr>
                                 <tr>
                                     <td>Phí vận chuyển</td>
-                                    <th>$10.00</th>
+                                    <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
                                 </tr>
                                 <tr>
                                     <td>VAT</td>
-                                    <th>$0.00</th>
+                                    <th><?php echo $total / 10 ?></th>
                                 </tr>
                                 <tr class="total">
                                     <td>Tổng tiền</td>
-                                    <th>$456.00</th>
+                                    <th><?php echo $total + $total / 10 + $ship?></th>
                                 </tr>
                             </tbody>
                         </table>

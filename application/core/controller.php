@@ -19,6 +19,9 @@ class Controller
      */
     function __construct()
     {
+        session_start();
+        ob_start();
+        
         $this->openDatabaseConnection();
         $this->loadModel();
         $this->loadActive();

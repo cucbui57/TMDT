@@ -21,6 +21,7 @@
     <link href="<?php echo URL ?>css/custom.css" rel="stylesheet">
     <link href="<?php echo URL ?>css/toTop.css" rel="stylesheet">
     <link href="<?php echo URL ?>css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="<?php echo URL ?>css/jquery-confirm.min.css" type="text/css" rel="stylesheet"/>
     <script src="<?php echo URL ?>js/respond.min.js"></script>
     <link rel="shortcut icon" href="<?php echo URL ?>img/logo.png">
 
