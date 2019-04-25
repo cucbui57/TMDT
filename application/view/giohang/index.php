@@ -1,9 +1,9 @@
 <div id="all">
     <div id="content">
         <div class="container">
-            <div class="col-md-9" id="basket">
-                <div class="box">
-                    <form method="post" action="checkout1.html" id="cartList">
+            <form method="post">
+                <div class="col-md-9" id="basket">
+                    <div class="box">
                         <h1>Giỏ hàng</h1>
                         <p class="text-muted">Bạn hiện có <strong>
                             <?php
@@ -33,11 +33,11 @@
                                     ?>
                                     <tr>
                                         <td>
-                                            <a href="#">
+                                            <a target="blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>">
                                                 <img src="<?php echo URL . $cart['item']->image ?>" alt="<?php echo $cart['item']->name ?>">
                                             </a>
                                         </td>
-                                        <td><a href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>"><?php echo $cart['item']->name ?></a>
+                                        <td><a target="blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>"><?php echo $cart['item']->name ?></a>
                                         </td>
                                         <td id="size_<?php echo $key ?>" value = "<?php echo $key ?>">
                                             <?php echo $cart['size'] ?>
@@ -64,11 +64,9 @@
                                 </tfoot>
                             </table>
                         </div>
-                    </form>
-                </div>
-                
-                <div class="box">
-                    <form method="post" action="checkout2.html">
+                    </div>
+                    
+                    <div class="box">
                         <h1>Thông tin vận chuyển</h1>
 
                         <div class="content">
@@ -76,22 +74,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="name">Họ tên</label>
-                                        <input type="text" class="form-control" id="name">
+                                        <input type="text" class="form-control" id="receiver_name" name="receiver_name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="phone">Số điện thoại</label>
-                                        <input type="text" class="form-control" id="phone">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email">
+                                        <input type="text" class="form-control" id="receiver_phone" name="receiver_phone">
                                     </div>
                                 </div>
                             </div>
@@ -99,54 +88,54 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="address">Địa chỉ</label>
-                                        <textarea class="form-control" id="address" rows="10"></textarea>
+                                        <textarea class="form-control" id="receiver_address" name="receiver_address" rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-3">
-                <div class="box" id="order-summary">
-                    <div class="box-header">
-                        <h3>Hóa đơn</h3>
-                    </div>
-
-                    <div class="table-responsive" id="checkout-cart">
-                        <table class="table">
-                            
-                            <tbody>
-                                <tr>
-                                    <td>Tổng tiền</td>
-                                    <th><?php echo $total ?></th>
-                                </tr>
-                                <tr>
-                                    <td>Phí vận chuyển</td>
-                                    <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
-                                </tr>
-                                <tr>
-                                    <td>VAT</td>
-                                    <th><?php echo $total / 10 ?></th>
-                                </tr>
-                                <tr class="total">
-                                    <td>Tổng tiền</td>
-                                    <th><?php echo $total + $total / 10 + $ship?></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="box-footer">
-                        <div class="pull-left">
-                            <button type="submit" class="btn btn-primary">Thanh toán <i class="fa fa-chevron-right"></i>
-                            </button>
+                <div class="col-md-3">
+                    <div class="box" id="order-summary">
+                        <div class="box-header">
+                            <h3>Hóa đơn</h3>
                         </div>
-                    </div>
 
+                        <div class="table-responsive" id="checkout-cart">
+                            <table class="table">
+                                
+                                <tbody>
+                                    <tr>
+                                        <td>Tổng tiền</td>
+                                        <th><?php echo $total ?></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Phí vận chuyển</td>
+                                        <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
+                                    </tr>
+                                    <tr>
+                                        <td>VAT</td>
+                                        <th><?php echo $total / 10 ?></th>
+                                    </tr>
+                                    <tr class="total">
+                                        <td>Tổng tiền</td>
+                                        <th><?php echo $total + $total / 10 + $ship?></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <button type="submit" name="checkout" class="btn btn-primary">Thanh toán <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

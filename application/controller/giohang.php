@@ -4,10 +4,54 @@ class Giohang extends Controller
 
     public function index()
     {
+        if(isset($_POST["checkout"])){
+            $this->addOrder();
+            $this->addOrderDetail();
+            unset($_SESSION['cart']);
+            echo "<script> alert('Đặt hàng thành công!');
+            window.location.href = '".URL."taikhoan' </script>";
+        }
         require APP . 'view/_templates/main_header.php';
         require APP . 'view/_templates/navbar.php';
         require APP . 'view/giohang/index.php';
         require APP . 'view/_templates/main_footer.php';
+    }
+
+    public function addOrder(){
+        $subtotal=0;
+        echo "<pre>";
+        var_dump($_SESSION['cart']);
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $subtotal +=  $value['item']->price * $value['quantity'];
+        }
+        $data = [
+            "user_id" => $_SESSION['isLogin']->id,
+            "total" =>  $subtotal + $subtotal / 10 + 20000,
+            "date_order" => date("Y-m-d") ,
+            "receiver_name" => $_POST['receiver_name'],
+            "receiver_phone" => $_POST['receiver_phone'],
+            "receiver_address" => $_POST['receiver_address'],
+            "status" => 0,
+        ];
+        var_dump($data);
+        $result = $this->model->addNew("tbl_order",$data);
+    }
+        
+    public function addOrderDetail(){
+        $order = $this->model->getLastID('tbl_order', 'id');
+        var_dump($id);
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $data = [
+                "order_id" => $order->id,
+                "product_id" => $value['item']->id,
+                "amount" =>  $value['quantity'],
+                "price" => $value['item']->price,
+                "size" => $value['size'],
+                "status" => 0
+            ];
+            var_dump($data);
+            $result = $this->model->addNew("tbl_order_detail",$data);
+        }
     }
 
 	public function add(){
@@ -50,11 +94,6 @@ class Giohang extends Controller
         }   
 	}
 
-	public function deletee(){
-		session_unset('cart');
-		session_destroy();
-	}
-
     public function deleteItem(){
         if(isset($_POST["id"])){
             $cart = $_SESSION["cart"];
@@ -72,8 +111,6 @@ class Giohang extends Controller
                 $id = $_POST["id"];
                 $quantity = $_POST["quantity"];
                 $size = $_POST["size"];
-                // var_dump($id . $quantity . $size);
-                // die();
                 $item = $this->model->getProductById($id);
                 $cart = $_SESSION["cart"];
                 if($_POST["quantity"]){

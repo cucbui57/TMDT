@@ -24,7 +24,6 @@ CLass Dangnhap extends Controller{
                         if(isset($_POST["remember"])){
                             setcookie('email', $email, time() + (86400 * 30), "/");
                         }
-
                         $_SESSION["isLogin"] = $user[0];
                         return header("location:".URL."trangchu");
                     }

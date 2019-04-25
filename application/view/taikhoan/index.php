@@ -1,44 +1,38 @@
 <div id="all">
+    <div id="content">
+        <div class="container">
+            <?php require APP . 'view/_templates/side-bar-user.php'; ?>
+            <div class="col-md-9">
+                <div class="box">
+                    <h1>Tài khoản</h1>
+                    <hr>
 
-        <div id="content">
-            <div class="container">
-
-                <div class="col-md-8">
-                    <div class="box">
-                        <h1>Đăng kí</h1>
-
-                        <p class="lead">Bạn chưa có tài khoản? Hãy đăng kí ngay để nhận những ưu đãi của chúng tôi!</p>
-                        <hr>
-
-                        <form action="" method="post">
+                    <h3>Thông tin cá nhân</h3>
+                    <form action="" method="post">
                             <div class="form-group col-sm-6">
                                 <label for="name">Họ tên</label>
-                                <input type="text" class="form-control" required="true" name="name">
+                                <input type="text" class="form-control" required="true" name="name" value="<?php echo $user->name ?>">
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" required="true" name="email">
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="password">Mật khẩu</label>
-                                <input type="password" class="form-control" required="true" name="password">
+                                <input type="text" class="form-control" required="true" name="email" value="<?php echo $user->email ?>">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="phone">Số điện thoại</label>
-                                <input type="phone" class="form-control" required="true" name="phone">
+                                <input type="phone" class="form-control" required="true" name="phone" value="<?php echo $user->phone ?>">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="birthday">Ngày sinh</label>
-                                <input type="date" class="form-control" required="true" name="birthday">
+                                <input type="date" class="form-control" required="true" name="birthday" value="<?php echo $user->birthday ?>">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="gender">Giới tính</label>
                                 <div class="radio">
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" checked value="1">Name
+                                      <input type="radio" id="gender" name="gender" <?php if ($user->gender == '1') echo "checked"  ?> value="1">Name
                                     </label>
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" value="2">Nữ
+                                      <input type="radio" id="gender" name="gender" <?php if ($user->gender == '2') echo "checked"  ?> value="2">Nữ
                                     </label>
                                 </div>
                             </div>
@@ -68,44 +62,12 @@
                                 </select>
                             </div>
                             <div class="text-center">
-                                <button type="submit" name="addNew" class="btn btn-primary"><i class="fa fa-user-md"></i> Đăng kí</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Cập nhật</button>
                             </div>
                         </form>
-                    </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="box">
-                        <h1>Đăng nhập</h1>
-
-                        <p class="lead">Nếu đã có tài khoản? Đăng nhập tại đây.</p>
-
-                        <hr>
-
-                        <form action="<?php echo URL ?>dangnhap" method="post">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Mật khẩu</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" id="remember" name="remember" value="1">Ghi nhớ</label>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" name="btnLogin" class="btn btn-primary"><i class="fa fa-sign-in"></i> Đăng nhập</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-
             </div>
-            <!-- /.container -->
         </div>
-        <!-- /#content -->
+    </div>
 
 
-        <!-- *** FOOTER ***

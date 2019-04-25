@@ -16,9 +16,13 @@ class Dangki extends Controller
 
     public function addUser(){
         if(isset($_POST["addNew"])){
-            $_POST['password'] = sha1($_POST['password']);
-            $register = $this->model->addNew('tbl_user', $_POST);
-            header("Location:".URL."trangchu");
+            if (!$isReg = $this->model->getListById('tbl_user', 'email', $_POST['email'])) {
+                $_POST['password'] = sha1($_POST['password']);
+                $register = $this->model->addNew('tbl_user', $_POST);
+                $user = $this->model->getListById('tbl_user', 'email', $_POST['email']);
+                $_SESSION["isLogin"] = $user[0];
+                header("Location:".URL."trangchu");
+            }
         }
     }
 

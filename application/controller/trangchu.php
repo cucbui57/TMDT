@@ -11,4 +11,9 @@ class Trangchu extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
 
+    public function deleteSession()
+    {
+    	session_unset();
+    	sessione_destroy();
+    }
 }

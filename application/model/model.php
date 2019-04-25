@@ -61,7 +61,7 @@ class Model
 
     public function getListById($table, $key_word, $id)
     {
-        $sql = "SELECT * FROM $table WHERE $key_word = ?";
+        $sql = "SELECT * FROM $table WHERE $key_word = ? AND `status` = 0";
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
         return $query->fetchAll();
@@ -92,6 +92,13 @@ class Model
             unset($prepare);
        }
    }
+
+    public function getLastID($table, $key_word){
+        $sql = "SELECT $key_word FROM $table ORDER BY $key_word DESC LIMIT 1 ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetch();
+    }
 ///////
     public function updateList($table, $key_word, $id, $data){
         if(is_array($data)){

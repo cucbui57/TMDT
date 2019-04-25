@@ -160,43 +160,43 @@
 
         <div class="navbar-buttons">
 
-                <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="<?php echo URL ?>giohang" class="btn btn-primary navbar-btn" id = 'cartBtn'>
-                        <span id = 'cartNum'>
-                            <i class="fa fa-shopping-cart"></i>
-                            <?php
-                                if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
-                                    echo '[';
-                                    echo count($_SESSION['cart']);
-                                    echo ']';
-                                }
-                            ?>
-                            <span class="hidden-sm">Giỏ hàng</span>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="navbar-collapse collapse right" id="search-not-mobile">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only"></span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                <a href="<?php echo URL ?>giohang" class="btn btn-primary navbar-btn" id = 'cartBtn'>
+                    <span id = 'cartNum'>
+                        <i class="fa fa-shopping-cart"></i>
+                        <?php
+                            if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+                                echo '[';
+                                echo count($_SESSION['cart']);
+                                echo ']';
+                            }
+                        ?>
+                        <span class="hidden-sm">Giỏ hàng</span>
+                    </span>
+                </a>
             </div>
 
-            <div class="collapse clearfix" id="search">
-
-                <form class="navbar-form" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm">
-                        <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
-
+            <div class="navbar-collapse collapse right" id="search-not-mobile">
+                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only"></span>
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
+
+        </div>
+
+        <div class="collapse clearfix" id="search">
+
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm">
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+
         </div>
     </div>
+</div>
 

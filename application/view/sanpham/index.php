@@ -2,28 +2,27 @@
 	<div id="content">
 		<div class="container">
 
-			<div class="col-md-9 col-sm-8 pull-right">
+			<div class="col-md-9 col-sm-8 col-xs-12 pull-right">
 				<div class="box info-bar">
 					<div class="row">
-						<div class="col-sm-12 col-md-12 products-showing">
+						<div class="col-sm-12 products-showing">
 							<h3><?php echo $title ?></h3>
 						</div>
 
 					</div>
 				</div>
 				<div class="row products">
-
 					<?php
 					if(isset($products)){
 						foreach ($products as $product_sp) {
 							?>
-							<div class="col-md-4 col-sm- col-xs-12">
+							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="product">
 									<div class="flip-container">
 										<div class="flipper">
 											<div class="front">
 												<a href="<?php if (isset($product_sp->id)) echo "chitiet/0".htmlspecialchars($product_sp->id, ENT_QUOTES, 'UTF-8');?>">
-													<img src="<?php if (isset($product_sp->image)) echo URL. htmlspecialchars($product_sp->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" style = "max-width: 100%; background-size: contain;">
+													<img src="<?php if (isset($product_sp->image)) echo URL. htmlspecialchars($product_sp->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" style = "width: 100%; background-size: contain;">
 												</a>
 											</div>
 											<div class="back">
@@ -82,5 +81,6 @@
 						</div>
 
 					</div>
+
 
 
