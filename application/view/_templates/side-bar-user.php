@@ -6,13 +6,13 @@
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
                 <li class="active">
-                    <a href="customer-orders.html"><i class="fa fa-user"></i> Tài khoản</a>
+                    <a href="<?php echo URL ?>taikhoan"><i class="fa fa-user"></i> Tài khoản</a>
                 </li>
                 <li>
-                    <a href="customer-wishlist.html"><i class="fa fa-list"></i> Đơn hàng</a>
+                    <a href="<?php echo URL ?>donhang"><i class="fa fa-list"></i> Đơn hàng</a>
                 </li>
                 <li>
-                    <a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                    <a href="<?php echo URL ?>dangxuat"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                 </li>
             </ul>
         </div>

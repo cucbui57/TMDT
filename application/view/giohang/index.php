@@ -1,7 +1,7 @@
 <div id="all">
     <div id="content">
         <div class="container">
-            <form method="post">
+            <form method="post" id="cartList">
                 <div class="col-md-9" id="basket">
                     <div class="box">
                         <h1>Giỏ hàng</h1>
@@ -73,14 +73,22 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="name">Họ tên</label>
+                                        <label for="receiver_name">Họ tên</label>
                                         <input type="text" class="form-control" id="receiver_name" name="receiver_name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="phone">Số điện thoại</label>
+                                        <label for="receiver_phone">Số điện thoại</label>
                                         <input type="text" class="form-control" id="receiver_phone" name="receiver_phone">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="receiver_email">Email</label>
+                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email">
                                     </div>
                                 </div>
                             </div>

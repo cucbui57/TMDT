@@ -120,35 +120,9 @@
                                             </li>
                                             <li><a href="<?php echo URL ?>sanpham/dongphucquanlykhachsannhahang">Đồng phục quản lý khách sạn nhà hàng</a>
                                             </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucbellbaovekhachsan">Đồng phục bell - bảo vệ khách sạn</a>
-                                            </li>
                                             <li><a href="<?php echo URL ?>sanpham/dongphucbeptapdemubep">Đồng phục bếp - tạp dề - mũ bếp</a>
                                             </li>
                                         </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5><a href="<?php echo URL ?>sanpham/dongphucbaohocongnhan">Đồng phục bảo hộ - công nhân</a></h5>
-                                        <ul>
-                                            <li><a href="<?php echo URL ?>sanpham/quanaocongnhan">Quần áo công nhân</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucbaoholaodong">Đồng phục bảo hộ lao động</a>
-                                            </li>
-                                        </ul>
-                                        <br/>
-                                        <h5><a href="<?php echo URL ?>sanpham/dongphucbenhvienyte">Đồng phục bệnh viện y tế</a></h5>
-                                        <ul>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucbacsibenhvien">Đồng phục bác sĩ bệnh viện</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucytabenhvien">Đồng phục y tá bệnh viện</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5 style="margin-bottom: 2rem;"><a href="<?php echo URL ?>sanpham/dongphucaogioaokhoac">Đồng phục áo gió - áo khoác</a></h5>
-                                        <h5 style="margin-bottom: 2rem;"><a href="<?php echo URL ?>sanpham/dongphuctapvu">Đồng phục tạp vụ</a></h5>
-                                        <h5 style="margin-bottom: 2rem;"><a href="<?php echo URL ?>sanpham/dongphucquanaobaove">Đồng phục quần áo bảo vệ</a></h5>
-                                        <h5 style="margin-bottom: 2rem;"><a href="<?php echo URL ?>sanpham/dongphucaophong">Đồng phục áo phông</a></h5>
-                                        <h5 style="margin-bottom: 2rem;"><a href="<?php echo URL ?>sanpham/dongphucspa">Đồng phục spa</a></h5>
                                     </div>
                                 </div>
                             </div>

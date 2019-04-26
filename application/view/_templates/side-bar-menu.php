@@ -38,44 +38,9 @@
                         </li>
                         <li class="<?php if($this->url_active[3] == 'dongphucquanlykhachsannhahang' || $caty == 'dongphucquanlykhachsannhahang') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucquanlykhachsannhahang">Đồng phục quản lý khách sạn nhà hàng</a>
                         </li>
-                        <li class="<?php if($this->url_active[3] == 'dongphucbellbaovekhachsan' || $caty == 'dongphucbellbaovekhachsan') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucbellbaovekhachsan">Đồng phục bell - bảo vệ khách sạn</a>
-                        </li>
                         <li class="<?php if($this->url_active[3] == 'dongphucbeptapdemubep' || $caty == 'dongphucbeptapdemubep') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucbeptapdemubep">Đồng phục bếp - tạp dề - mũ bếp</a>
                         </li>
                     </ul>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphucbaohocongnhan') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucbaohocongnhan">Đồng phục bảo hộ - công nhân</a>
-                    <ul>
-                        <li class="<?php if($this->url_active[3] == 'quanaocongnhan' || $caty == 'quanaocongnhan') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/quanaocongnhan">Quần áo công nhân</a>
-                        </li>
-                        <li class="<?php if($this->url_active[3] == 'dongphucbaoholaodong' || $caty == 'dongphucbaoholaodong') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucbaoholaodong">Đồng phục bảo hộ lao động</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphucbenhvienyte') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucbenhvienyte">Đồng phục bệnh viện y tế</a>
-                    <ul>
-                        <li  class="<?php if($this->url_active[3] == 'dongphucbacsibenhvien' || $caty == 'dongphucbacsibenhvien') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucbacsibenhvien">Đồng phục bác sĩ bệnh viện</a>
-                        </li>
-                        <li  class="<?php if($this->url_active[3] == 'dongphucytabenhvien' || $caty == 'dongphucytabenhvien') echo 'active' ?>"><a href="<?php echo URL ?>sanpham/dongphucytabenhvien">Đồng phục y tá bệnh viện</a>
-                        </li>
-                    </ul>
-                </li>                                
-                <li class="<?php if($this->url_active[3] == 'dongphucaogioaokhoac' || $caty == 'dongphucaogioaokhoac') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucaogioaokhoac">Đồng phục áo gió - áo khoác</a>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphuctapvu' || $caty == 'dongphuctapvu') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphuctapvu">Đồng phục tạp vụ</a>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphucquanaobaove' || $caty == 'dongphucquanaobaove') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucquanaobaove">Đồng phục quần áo bảo vệ</a>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphucaophong' || $caty == 'dongphucaophong') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucaophong">Đồng phục áo phông</a>
-                </li>
-                <li class="<?php if($this->url_active[3] == 'dongphucspa' || $caty == 'dongphucspa') echo 'active' ?>">
-                    <a href="<?php echo URL ?>sanpham/dongphucspa">Đồng phục spa</a>
                 </li>
 
             </ul>

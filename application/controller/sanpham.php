@@ -22,7 +22,7 @@ class Sanpham extends Controller
             $id = (int)$id;
             $product = $this->model->getProductById($id);
             if(isset($product->id)){
-                $relative_products = $this->model->getRelativeProduct($product->category);
+                $relative_products = $this->model->getRelativeProduct($product->category_id);
                 require APP . 'view/_templates/main_header.php';
                 require APP . 'view/_templates/navbar.php';
                 require APP . 'view/chitiet/index.php';
@@ -38,8 +38,8 @@ class Sanpham extends Controller
     // private $list1 = ['dongphuccongsovanphong', 'aosominam', 'aosominu', 'quanaucongsonamnu', 'chanvayjuypcongso', 'dongphucvestcongsonamnu', 'dongphucghilenamnu'];
     public function dongphuccongsovanphong()
     {
-    	$condition = "category = 'aosominam' OR category = 'aosominu' OR category = 'quanaucongsonamnu' OR category = 'chanvayjuypcongso' OR category = 'dongphucvestcongsonamnu' OR category = 'dongphucghilenamnu'";
-        $title = "Đồng phục công sở - văn phòng";
+    	$condition = "category_id = '2' OR category_id = '3' OR category_id = '4' OR category_id = '5' OR category_id = '6' OR category_id = '7'";
+        $title = $this->model->getListById('tbl_category', 'id', 1)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -49,8 +49,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function aosominam(){
-        $condition = "category = 'aosominam'";
-        $title = "Áo sơ mi nam";
+        $condition = "category_id = '2'";
+        $title = $this->model->getListById('tbl_category', 'id', 2)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -60,8 +60,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function aosominu(){
-        $condition = "category = 'aosominu'";
-        $title = "Áo sơ mi nữ";
+        $condition = "category_id = '3'";
+        $title = $this->model->getListById('tbl_category', 'id', 3)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -71,8 +71,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function quanaucongsonamnu(){
-        $condition = "category = 'quanaucongsonamnu'";
-        $title = "Quần âu công sở nam nữ";
+        $condition = "category_id = '4'";
+        $title = $this->model->getListById('tbl_category', 'id', 4)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -82,8 +82,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function chanvayjuypcongso(){
-        $condition = "category = 'chanvayjuypcongso'";
-        $title = "Chân váy - juyp công sở";
+        $condition = "category_id = '5'";
+        $title = $this->model->getListById('tbl_category', 'id', 5)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -93,8 +93,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucvestcongsonamnu(){
-        $condition = "category = 'dongphucvestcongsonamnu'";
-        $title = "Đồng phục vest công sở nam nữ";
+        $condition = "category_id = '6'";
+        $title = $this->model->getListById('tbl_category', 'id', 6)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -104,8 +104,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucghilenamnu(){
-        $condition = "category = 'dongphucghilenamnu'";
-        $title = "Đồng phục ghile nam nữ";
+        $condition = "category_id = '7'";
+        $title = $this->model->getListById('tbl_category', 'id', 7)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -119,8 +119,8 @@ class Sanpham extends Controller
     //private $list2 = ['dongphucnhahangkhachsan', 'dongphucaobep', 'dongphucphucvu', 'dongphucquanlykhachsannhahang', 'dongphucbellbaovekhachsan', 'dongphucbeptapdemubep']
 
     public function dongphucnhahangkhachsan(){
-        $condition = "category = 'dongphucaobep' OR category = 'dongphucphucvu' OR category = 'dongphucquanlykhachsannhahang' OR category = 'dongphucbellbaovekhachsan' OR category = 'dongphucbeptapdemubep'";
-        $title = "Đồng phục nhà hàng khách sạn";
+        $condition = "category_id = '9' OR category_id = '10' OR category_id = '11' OR category_id = '12'";
+        $title = $this->model->getListById('tbl_category', 'id', 8)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -130,8 +130,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucaobep(){
-        $condition = "category = 'dongphucaobep'";
-        $title = "Đồng phục áo bếp";
+        $condition = "category_id = '9'";
+        $title = $this->model->getListById('tbl_category', 'id', 9)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -141,8 +141,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucphucvu(){
-        $condition = "category = 'dongphucphucvu'";
-        $title = "Đồng phục phục vụ";
+        $condition = "category_id = '10'";
+        $title = $this->model->getListById('tbl_category', 'id', 10)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -152,19 +152,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucquanlykhachsannhahang(){
-        $condition = "category = 'dongphucquanlykhachsannhahang'";
-        $title = "Đồng phục quản lý khách sạn nhà hàng";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    public function dongphucbellbaovekhachsan(){
-        $condition = "category = 'dongphucbellbaovekhachsan'";
-        $title = "Đồng phục bell - bảo vệ khách sạn";
+        $condition = "category_id = '11'";
+        $title = $this->model->getListById('tbl_category', 'id', 12)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -174,8 +163,8 @@ class Sanpham extends Controller
         require APP . 'view/_templates/main_footer.php';
     }
     public function dongphucbeptapdemubep(){
-        $condition = "category = 'dongphucbeptapdemubep'";
-        $title = "Đồng phục bếp - tạp dề - mũ bếp";
+        $condition = "category_id = '12'";
+        $title = $this->model->getListById('tbl_category', 'id', 12)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
         require APP . 'view/_templates/main_header.php';
@@ -184,144 +173,6 @@ class Sanpham extends Controller
         require APP . 'view/_templates/side-bar-menu.php';
         require APP . 'view/_templates/main_footer.php';
     }
-
-    //-----------------------------------------
-    // 'dongphucbaohocongnhan', 'quanaocongnhan', 'dongphucbaoholaodong'
-    public function dongphucbaohocongnhan(){
-        $condition = "category = 'quanaocongnhan' OR category = 'dongphucbaoholaodong'";
-        $title = "Đồng phục bảo hộ - công nhân";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    public function quanaocongnhan(){
-        $condition = "category = 'quanaocongnhan'";
-        $title = "Quần áo công nhân";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    public function dongphucbaoholaodong(){
-        $condition = "category = 'dongphucbaoholaodong'";
-        $title = "Đồng phục bảo hộ lao động";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-
-    //-----------------------------------------
-    // 'dongphucbenhvienyte', 'dongphucbacsibenhvien', 'dongphucytabenhvien'
-    public function dongphucbenhvienyte(){
-        $condition = "category = 'dongphucbacsibenhvien' OR category = 'dongphucytabenhvien'";
-        $title = "Đồng phục bệnh viện y tế";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    public function dongphucbacsibenhvien(){
-        $condition = "category = 'dongphucbacsibenhvien'";
-        $title = "Đồng phục bác sĩ bệnh viện";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    public function dongphucytabenhvien(){
-        $condition = "category = 'dongphucytabenhvien'";
-        $title = "Đồng phục y tá bệnh viện";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-
-    //-----------------------------------------
-    public function dongphuctapvu(){
-        $condition = "category = 'dongphuctapvu'";
-        $title = "Đồng phục tạp vụ";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-
-    //-----------------------------------------
-    public function dongphucaogioaokhoac(){
-        $condition = "category = 'dongphucaogioaokhoac'";
-        $title = "Đồng phục áo gió - áo khoác";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    
-    //-----------------------------------------
-    public function dongphucquanaobaove(){
-        $condition = "category = 'dongphucquanaobaove'";
-        $title = "Đồng phục quần áo bảo vệ";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-
-    //-----------------------------------------
-    public function dongphucaophong(){
-        $condition = "category = 'dongphucaophong'";
-        $title = "Đồng phục áo phông";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    //-----------------------------------------
-    public function dongphucspa(){
-        $condition = "category = 'dongphucspa'";
-        $title = "Đồng phục spa";
-        $total = $this->model->getNum($condition);
-        $products = $this->setPagination($condition, $total->num);
-        require APP . 'view/_templates/main_header.php';
-        require APP . 'view/_templates/navbar.php';
-        require APP . 'view/sanpham/index.php';
-        require APP . 'view/_templates/side-bar-menu.php';
-        require APP . 'view/_templates/main_footer.php';
-    }
-    //---------------------------------------------------------------------------------------------------
-
 
     public function setPagination($condition, $total){
         $products =[];

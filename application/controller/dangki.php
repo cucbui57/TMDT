@@ -36,7 +36,7 @@ class Dangki extends Controller
                 $districts = $this->model->getListById("tbl_district", "province_id", $id);
                 foreach ($districts as $district) {
                     $selected = "";
-                    if($district->id_district == $tmp){
+                    if($district->id == $tmp){
                         $selected = "selected";
                     }
 	?>
@@ -56,7 +56,7 @@ class Dangki extends Controller
                 $wards = $this->model->getListById("tbl_ward", "district_id", $id);
                 foreach ($wards as $ward) {
                     $selected = "";
-                    if($ward->id_ward == $tmp){
+                    if($ward->id == $tmp){
                         $selected = "selected";
                     }
 	?>

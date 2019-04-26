@@ -18,6 +18,7 @@ CLass Dangnhap extends Controller{
             $password = sha1($_POST["password"]);
             $user = $this->model->getListById($this->table_name, $this->key_word, $email);
             if(isset($user[0])){
+            echo "a";
                 if($user[0]->email != ""){
                     echo $user[0]->password;
                     if($user[0]->password == $password){
