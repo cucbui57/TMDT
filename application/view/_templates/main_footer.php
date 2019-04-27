@@ -13,8 +13,28 @@ require APP . 'view/_templates/footer-copyright.php';
 <script src="<?php echo URL ?>js/front.js"></script>
 <script src="<?php echo URL ?>js/toTop.js"></script>
 <script src="<?php echo URL ?>js/jquery-confirm.min.js"></script>
-<script>    	
-		function add(id){
+<script>
+	window.addEventListener('load', userInfoGetDistrict);
+
+	function getDistrict(id, tmp){
+		$("#ward_user").html('<option value="">---Chọn---</option>');
+		$.post("<?php echo URL."dangki/" ?>getDistrict", {'id':id, 'tmp':tmp}, function(data) {
+			$("#district_id").html(data);
+		});
+	}
+
+	function getWard(id, tmp){
+		$.post('<?php echo URL."dangki/" ?>getWard', {'id':id, 'tmp':tmp}, function(data) {
+			$("#ward_id").html(data);
+		});
+	}
+
+	function userInfoGetDistrict() {
+		if($("#province_id").val() != ""){
+  			getDistrict($("#province_id").val(), <?php echo ($user->district_id); ?>);
+		}
+	}	
+	function add(id){
 		var size = $('#size').val();
 		var quantity = $('#quantity').val();
 		$.post('<?php echo URL."giohang/" ?>add', {'id': id, 'size': size, 'quantity': quantity}, function() {
@@ -69,34 +89,15 @@ require APP . 'view/_templates/footer-copyright.php';
 			$("#checkout-cart").load("<?php echo URL ?>giohang #checkout-cart");
 		});
 	}
-
-	function getDistrict(id, tmp){
-		$("#ward_user").html('<option value="">---Chọn---</option>');
-		$.post("<?php echo URL."dangki/" ?>getDistrict", {'id':id, 'tmp':tmp}, function(data) {
-			$("#district_id").html(data);
-		});
-	}
-
-	function getWard(id, tmp){
-		$.post('<?php echo URL."dangki/" ?>getWard', {'id':id, 'tmp':tmp}, function(data) {
-			$("#ward_id").html(data);
-		});
-	}
-
-	var userInfoGetDistrict = function() {
-		if($("#province_id").val() != ""){
-  			getDistrict($("#province_id").val(), <?php echo ($user->district_id); ?>);
-		}
-	}();
 </script>
 
 <script>
   	$(document).ready(function() {
-      	userInfoGetWard = function() {
+      	return setTimeout(function() {
       		if($("#district_id").val() != ""){
         		getWard($("#district_id").val(), <?php echo $user->ward_id ?>);
       		}
-    	}();
+    	}, 200);
     });
 </script>
 

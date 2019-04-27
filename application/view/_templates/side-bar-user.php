@@ -5,10 +5,10 @@
         </div>
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
-                <li class="active">
+                <li class="<?php if($this->url_active[2] == 'taikhoan') echo 'active' ?>">
                     <a href="<?php echo URL ?>taikhoan"><i class="fa fa-user"></i> Tài khoản</a>
                 </li>
-                <li>
+                <li class="<?php if($this->url_active[2] == 'donhang') echo 'active' ?>">
                     <a href="<?php echo URL ?>donhang"><i class="fa fa-list"></i> Đơn hàng</a>
                 </li>
                 <li>

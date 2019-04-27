@@ -29,10 +29,10 @@
                                 <label for="gender">Giới tính</label>
                                 <div class="radio">
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" <?php if ($user->gender == '1') echo "checked"  ?> value="1">Name
+                                      <input type="radio" id="male" name="gender" <?php if ($user->gender == '1') echo "checked"  ?> value="1">Name
                                     </label>
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" <?php if ($user->gender == '2') echo "checked"  ?> value="2">Nữ
+                                      <input type="radio" id="female" name="gender" <?php if ($user->gender == '2') echo "checked"  ?> value="2">Nữ
                                     </label>
                                 </div>
                             </div>

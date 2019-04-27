@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2019 at 04:53 PM
+-- Generation Time: Apr 27, 2019 at 07:21 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -790,10 +790,10 @@ CREATE TABLE `tbl_image` (
 
 CREATE TABLE `tbl_order` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `total` int(255) NOT NULL,
   `date_order` date NOT NULL,
-  `receiver_email` varchar(255) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `receiver_email` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `receiver_name` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `receiver_address` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `receiver_phone` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -805,7 +805,12 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id`, `total`, `date_order`, `receiver_email`, `receiver_name`, `receiver_address`, `receiver_phone`, `status`) VALUES
-(6, 11, 240000, '2019-04-25', NULL, '', '', '', 0);
+(11, 1, 220000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', '5 an hoa mo lao ha dong ha noi', '+84978628330', 3),
+(12, 1, 1060000, '2019-04-27', '', '', '', '', 1),
+(13, NULL, 170000, '2019-04-27', '', '', '', '', 0),
+(14, 1, 470000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'asdasdasd', '+84978628330', 0),
+(15, 1, 1020000, '2019-04-27', 'tl.thang244@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaaaaaaaaaaaa', '+84978628330', 0),
+(16, 1, 120000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '+84978628330', 3);
 
 -- --------------------------------------------------------
 
@@ -817,7 +822,7 @@ CREATE TABLE `tbl_order_detail` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `amount` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
   `price` float(50,0) NOT NULL,
   `size` varchar(5) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `status` int(11) DEFAULT '0'
@@ -827,10 +832,16 @@ CREATE TABLE `tbl_order_detail` (
 -- Dumping data for table `tbl_order_detail`
 --
 
-INSERT INTO `tbl_order_detail` (`id`, `order_id`, `product_id`, `amount`, `price`, `size`, `status`) VALUES
-(3, 6, 351, 1, 100000, 'S', 0),
-(4, 6, 351, 1, 100000, 'M', 0),
-(5, 6, 351, 1, 100000, 'S', 0);
+INSERT INTO `tbl_order_detail` (`id`, `order_id`, `product_id`, `quantity`, `price`, `size`, `status`) VALUES
+(12, 11, 351, 1, 100000, 'S', 0),
+(13, 11, 351, 1, 100000, 'M', 0),
+(14, 12, 313, 4, 130000, 'S', 0),
+(15, 12, 313, 4, 130000, 'M', 0),
+(16, 13, 350, 1, 150000, 'S', 0),
+(17, 14, 348, 3, 150000, 'L', 0),
+(18, 15, 312, 1, 200000, 'S', 0),
+(19, 15, 312, 4, 200000, 'L', 0),
+(20, 16, 351, 1, 100000, 'S', 0);
 
 -- --------------------------------------------------------
 
@@ -12411,13 +12422,13 @@ ALTER TABLE `tbl_image`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_detail`
 --
 ALTER TABLE `tbl_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`

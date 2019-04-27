@@ -5,11 +5,14 @@ class Giohang extends Controller
     public function index()
     {
         if(isset($_POST["checkout"])){
+            require APP . 'libs/mail/index.php';
+        }
+        if(isset($_POST["checkout"])){
             $this->addOrder();
             $this->addOrderDetail();
             unset($_SESSION['cart']);
             echo "<script> alert('Đặt hàng thành công!');
-            window.location.href = '".URL."taikhoan' </script>";
+            window.location.href = '".URL."donhang' </script>";
         }
         require APP . 'view/_templates/main_header.php';
         require APP . 'view/_templates/navbar.php';
@@ -19,37 +22,37 @@ class Giohang extends Controller
 
     public function addOrder(){
         $subtotal=0;
-        echo "<pre>";
-        var_dump($_SESSION['cart']);
         foreach ($_SESSION['cart'] as $key => $value) {
             $subtotal +=  $value['item']->price * $value['quantity'];
         }
+        $user_id = null;
+        if (isset($_SESSION['isLogin'])) {
+            $user_id = $_SESSION['isLogin']->id;
+        }
         $data = [
-            "user_id" => $_SESSION['isLogin']->id,
-            "total" =>  $subtotal + $subtotal / 10 + 20000,
+            "user_id" => $user_id,
+            "total" =>  $subtotal + 20000,
             "date_order" => date("Y-m-d") ,
             "receiver_name" => $_POST['receiver_name'],
+            "receiver_email" => $_POST['receiver_email'],
             "receiver_phone" => $_POST['receiver_phone'],
             "receiver_address" => $_POST['receiver_address'],
             "status" => 0,
         ];
-        var_dump($data);
         $result = $this->model->addNew("tbl_order",$data);
     }
         
     public function addOrderDetail(){
         $order = $this->model->getLastID('tbl_order', 'id');
-        var_dump($id);
         foreach ($_SESSION['cart'] as $key => $value) {
             $data = [
                 "order_id" => $order->id,
                 "product_id" => $value['item']->id,
-                "amount" =>  $value['quantity'],
+                "quantity" =>  $value['quantity'],
                 "price" => $value['item']->price,
                 "size" => $value['size'],
                 "status" => 0
             ];
-            var_dump($data);
             $result = $this->model->addNew("tbl_order_detail",$data);
         }
     }

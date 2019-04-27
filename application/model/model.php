@@ -67,6 +67,21 @@ class Model
         return $query->fetchAll();
     }
 
+    public function getOrders($table, $key_word, $id)
+    {
+        $sql = "SELECT * FROM $table WHERE $key_word = ? ORDER BY id DESC";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+        return $query->fetchAll();
+    }
+
+    public function getDetail($id){
+        $sql = "SELECT od.order_id, od.quantity, od.price, od.size, p.id as product_id, p.name as product_name, p.image as product_image FROM tbl_order_detail AS od , tbl_product AS p WHERE od.product_id = p.id AND od.order_id = ?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+        return $query->fetchAll();
+    }
+
     public function addNew($table, $data){
        if(is_array($data)){
            $field="";
@@ -99,14 +114,14 @@ class Model
         $query->execute();
         return $query->fetch();
     }
-///////
+
     public function updateList($table, $key_word, $id, $data){
         if(is_array($data)){
             $val = "";
             $i = 0;
+            $tmp = 1;
             $prepare = array();
             foreach ($data as $key => $value) {
-                var_dump($key);
                 if($key != "updateList"){
                     $i++;
                     if($key == "status"){
@@ -120,6 +135,9 @@ class Model
                     $prepare[] = $value;
                 }
             }
+            if($tmp == 1){
+                $val .= ", status = '0'";
+            }
         }
         $prepare[] = ($id);
         $sql = "UPDATE $table";
@@ -130,4 +148,3 @@ class Model
         unset($prepare);
     }
 }
-///////

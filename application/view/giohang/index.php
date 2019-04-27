@@ -1,8 +1,9 @@
 <div id="all">
     <div id="content">
         <div class="container">
-            <form method="post" id="cartList">
+            <form method="post">
                 <div class="col-md-9" id="basket">
+                    <div id="cartList">
                     <div class="box">
                         <h1>Giỏ hàng</h1>
                         <p class="text-muted">Bạn hiện có <strong>
@@ -27,8 +28,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                        $total = 0;
                                         if (isset($_SESSION['cart'])) {
-                                            $total = 0;
                                             foreach ($_SESSION['cart'] as $key => $cart) {
                                     ?>
                                     <tr>
@@ -65,7 +66,7 @@
                             </table>
                         </div>
                     </div>
-                    
+                    </div>
                     <div class="box">
                         <h1>Thông tin vận chuyển</h1>
 
@@ -74,13 +75,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="receiver_name">Họ tên</label>
-                                        <input type="text" class="form-control" id="receiver_name" name="receiver_name">
+                                        <input type="text" class="form-control" id="receiver_name" name="receiver_name" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="receiver_phone">Số điện thoại</label>
-                                        <input type="text" class="form-control" id="receiver_phone" name="receiver_phone">
+                                        <input type="text" class="form-control" id="receiver_phone" name="receiver_phone" required>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +89,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="receiver_email">Email</label>
-                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email">
+                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email" required>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +97,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="address">Địa chỉ</label>
-                                        <textarea class="form-control" id="receiver_address" name="receiver_address" rows="10"></textarea>
+                                        <textarea class="form-control" id="receiver_address" name="receiver_address" rows="10" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -122,13 +123,9 @@
                                         <td>Phí vận chuyển</td>
                                         <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
                                     </tr>
-                                    <tr>
-                                        <td>VAT</td>
-                                        <th><?php echo $total / 10 ?></th>
-                                    </tr>
                                     <tr class="total">
                                         <td>Tổng tiền</td>
-                                        <th><?php echo $total + $total / 10 + $ship?></th>
+                                        <th><?php echo $total + $ship?></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -136,7 +133,11 @@
 
                         <div class="box-footer">
                             <div class="pull-left">
-                                <button type="submit" name="checkout" class="btn btn-primary">Thanh toán <i class="fa fa-chevron-right"></i>
+                                <button type="submit" name="checkout" class="btn btn-primary" 
+                                <?php if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
+                                    echo "disabled"; 
+                                } ?>
+                                >Thanh toán <i class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
                         </div>

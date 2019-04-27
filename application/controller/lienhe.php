@@ -6,7 +6,6 @@ class Lienhe extends Controller
     {   
     	if(isset($_POST["submit"])){
 			require APP . 'libs/mail/index.php';
-			die();
 		}
         require APP . 'view/_templates/main_header.php';
         require APP . 'view/_templates/navbar.php';
