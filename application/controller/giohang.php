@@ -4,9 +4,17 @@ class Giohang extends Controller
 
     public function index()
     {
+        if(isset($_SESSION['isLogin'])){
+            $province = $this->model->getListById('tbl_province', 'id', $_SESSION['isLogin']->province_id);
+            $district = $this->model->getListById('tbl_district', 'id', $_SESSION['isLogin']->district_id);
+            $ward = $this->model->getListById('tbl_ward', 'id', $_SESSION['isLogin']->ward_id);
+            $address = $_SESSION['isLogin']->address . ", " . $ward[0]->name . ", " . $district[0]->name . ", " . $province[0]->name;
+        }
+
         if(isset($_POST["checkout"])){
             require APP . 'libs/mail/index.php';
         }
+
         if(isset($_POST["checkout"])){
             $this->addOrder();
             $this->addOrderDetail();
@@ -14,6 +22,7 @@ class Giohang extends Controller
             echo "<script> alert('Đặt hàng thành công!');
             window.location.href = '".URL."donhang' </script>";
         }
+
         require APP . 'view/_templates/main_header.php';
         require APP . 'view/_templates/navbar.php';
         require APP . 'view/giohang/index.php';

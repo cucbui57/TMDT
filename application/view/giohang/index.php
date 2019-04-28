@@ -75,13 +75,25 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="receiver_name">Họ tên</label>
-                                        <input type="text" class="form-control" id="receiver_name" name="receiver_name" required>
+                                        <input type="text" class="form-control" id="receiver_name" name="receiver_name" required 
+                                        <?php 
+                                            if (isset($_SESSION['isLogin'])){
+                                                echo "value = '".$_SESSION['isLogin']->name . "'";
+                                            }
+                                        ?>
+                                        >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="receiver_phone">Số điện thoại</label>
-                                        <input type="text" class="form-control" id="receiver_phone" name="receiver_phone" required>
+                                        <input type="text" class="form-control" id="receiver_phone" name="receiver_phone" required 
+                                        <?php 
+                                            if (isset($_SESSION['isLogin'])){
+                                                echo "value = '".$_SESSION['isLogin']->phone . "'";
+                                            }
+                                        ?>
+                                        >
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +101,13 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="receiver_email">Email</label>
-                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email" required>
+                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email" required 
+                                        <?php 
+                                            if (isset($_SESSION['isLogin'])){
+                                                echo "value = '".$_SESSION['isLogin']->email . "'";
+                                            }
+                                        ?>
+                                        >
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +115,11 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="address">Địa chỉ</label>
-                                        <textarea class="form-control" id="receiver_address" name="receiver_address" rows="10" required></textarea>
+                                        <textarea class="form-control" id="receiver_address" name="receiver_address" rows="5" required><?php
+                                            if (isset($_SESSION['isLogin'])){
+                                                echo $address;
+                                            }
+                                        ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -133,10 +155,17 @@
 
                         <div class="box-footer">
                             <div class="pull-left">
-                                <button type="submit" name="checkout" class="btn btn-primary" 
-                                <?php if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
-                                    echo "disabled"; 
-                                } ?>
+                                <button class="btn btn-primary" 
+                                <?php
+                                if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
+                                echo "disabled"; 
+                                } 
+                                if (isset($_SESSION['isLogin'])){
+                                    echo ' type="submit" name="checkout" ';
+                                } else {
+                                    echo ' data-toggle="modal" data-target="#login-modal" ';
+                                }
+                                ?>
                                 >Thanh toán <i class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
