@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 07:21 PM
+-- Generation Time: Apr 28, 2019 at 08:40 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `parent_id` int(11) DEFAULT '0',
   `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci ROW_FORMAT=COMPACT;
@@ -39,19 +40,19 @@ CREATE TABLE `tbl_category` (
 -- Dumping data for table `tbl_category`
 --
 
-INSERT INTO `tbl_category` (`id`, `name`, `parent_id`, `status`) VALUES
-(1, 'Đồng phục công sở - văn phòng', 0, 0),
-(2, 'Áo sơ mi nam', 1, 0),
-(3, 'Áo sơ mi nữ', 1, 0),
-(4, 'Quần âu công sở nam nữ', 1, 0),
-(5, 'Chân váy - juyp công sở', 1, 0),
-(6, 'Đồng phục vest công sở nam nữ', 1, 0),
-(7, 'Đồng phục ghile nam nữ', 1, 0),
-(8, 'Đồng phục nhà hàng khách sạn', 0, 0),
-(9, 'Đồng phục áo bếp', 8, 0),
-(10, 'Đồng phục phục vụ', 8, 0),
-(11, 'Đồng phục quản lý khách sạn nhà hàng', 8, 0),
-(12, 'Đồng phục bếp - tạp dề - mũ bếp', 8, 0);
+INSERT INTO `tbl_category` (`id`, `name`, `description`, `parent_id`, `status`) VALUES
+(1, 'Đồng phục công sở - văn phòng', 'dongphuccongsovanphong', 0, 0),
+(2, 'Áo sơ mi nam', 'aosominam', 1, 0),
+(3, 'Áo sơ mi nữ', 'aosominu', 1, 0),
+(4, 'Quần âu công sở nam nữ', 'quanaucongsonamnu', 1, 0),
+(5, 'Chân váy - juyp công sở', 'chanvayjuypcongso', 1, 0),
+(6, 'Đồng phục vest công sở nam nữ', 'dongphucvestcongsonamnu', 1, 0),
+(7, 'Đồng phục ghile nam nữ', 'dongphucghilenamnu', 1, 0),
+(8, 'Đồng phục nhà hàng khách sạn', 'dongphucnhahangkhachsan', 0, 0),
+(9, 'Đồng phục áo bếp', 'dongphucaobep', 8, 0),
+(10, 'Đồng phục phục vụ', 'dongphucphucvu', 8, 0),
+(11, 'Đồng phục quản lý khách sạn nhà hàng', 'dongphucquanlykhachsannhahang', 8, 0),
+(12, 'Đồng phục bếp - tạp dề - mũ bếp', 'dongphucbeptapdemubep', 8, 0);
 
 -- --------------------------------------------------------
 

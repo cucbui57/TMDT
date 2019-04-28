@@ -59,6 +59,14 @@ class Model
         return $query->fetchAll();
     }
 
+    public function getCategory($condition)
+    {
+        $sql = "SELECT * FROM tbl_category WHERE $condition";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
     public function getListById($table, $key_word, $id)
     {
         $sql = "SELECT * FROM $table WHERE $key_word = ? AND `status` = 0";

@@ -94,36 +94,24 @@
                         <li>
                             <div class="yamm-content">
                                 <div class="row">
-                                    <div class="col-sm-3">
-                                        <h5><a href="<?php echo URL ?>sanpham/dongphuccongsovanphong">Đồng phục công sở - văn phòng</a></h5>
-                                        <ul>
-                                            <li><a href="<?php echo URL ?>sanpham/aosominam">Áo sơ mi nam</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/aosominu">Áo sơ mi nữ</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/quanaucongsonamnu">Quần âu công sở nam nữ</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/chanvayjuypcongso">Chân váy - juyp công sở</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucvestcongsonamnu">Đồng phục vest công sở nam nữ</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucghilenamnu">Đồng phục ghile nam nữ</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5><a href="<?php echo URL ?>sanpham/dongphucnhahangkhachsan">Đồng phục nhà hàng khách sạn</a></h5>
-                                        <ul>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucaobep">Đồng phục áo bếp</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucphucvu">Đồng phục phục vụ</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucquanlykhachsannhahang">Đồng phục quản lý khách sạn nhà hàng</a>
-                                            </li>
-                                            <li><a href="<?php echo URL ?>sanpham/dongphucbeptapdemubep">Đồng phục bếp - tạp dề - mũ bếp</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <?php
+                                        $condition = "parent_id = '0'";
+                                        $category_parents = $this->model->getCategory($condition);
+
+                                        foreach ($category_parents as $category_parent) {
+                                            $condition = "parent_id = $category_parent->id";
+                                            $category_childs = $this->model->getCategory($condition);
+                                        ?>
+                                        <div class="col-sm-3">
+                                            <h5><a href="<?php echo URL ?>sanpham/<?php echo $category_parent->description ?>"><?php echo $category_parent->name ?></a></h5>
+                                            <ul>
+                                                <?php foreach ($category_childs as $category_child) {
+                                                ?>
+                                                <li><a href="<?php echo URL ?>sanpham/<?php echo $category_child->description ?>"><?php echo $category_child->name ?></a>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <?php } ?>
                                 </div>
                             </div>
                         </li>
