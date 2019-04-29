@@ -22,6 +22,9 @@ class Dangki extends Controller
                 $user = $this->model->getListById('tbl_user', 'email', $_POST['email']);
                 $_SESSION["isLogin"] = $user[0];
                 header("Location:".URL."trangchu");
+            } else {
+                echo "<script> alert('Email đã tồn tại, không thể tạo tài khoản!');
+                window.location.href = '".URL."dangki' </script>";
             }
         }
     }

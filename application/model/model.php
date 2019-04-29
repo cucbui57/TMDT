@@ -61,7 +61,7 @@ class Model
 
     public function getCategory($condition)
     {
-        $sql = "SELECT * FROM tbl_category WHERE $condition";
+        $sql = "SELECT * FROM tbl_category WHERE $condition AND `status` = 0";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();

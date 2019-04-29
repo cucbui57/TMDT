@@ -4,8 +4,8 @@ class Donhang extends Controller
 
     public function index()
     {
-    	if (isset($_SESSION['isLogin'])) {
-	    	$orders = $this->model->getOrders('tbl_order', 'user_id', $_SESSION['isLogin']->id);
+    	if (isset($_SESSION['isLogin'][0])) {
+	    	$orders = $this->model->getOrders('tbl_order', 'user_id', $_SESSION['isLogin'][0]->id);
 
 	        require APP . 'view/_templates/main_header.php';
 	        require APP . 'view/_templates/navbar.php';
@@ -19,9 +19,9 @@ class Donhang extends Controller
 	public function chitiet($id)
 	{
 		if(isset($id)){
-			if(isset($_SESSION['isLogin'])){
+			if(isset($_SESSION['isLogin'][0])){
 				$order = $this->model->getOrders('tbl_order', 'id', $id);
-				if($_SESSION['isLogin']->id == $order[0]->user_id){
+				if($_SESSION['isLogin'][0]->id == $order[0]->user_id){
 				$order_details = $this->model->getDetail($id);
 					require APP . 'view/_templates/main_header.php';
 			        require APP . 'view/_templates/navbar.php';

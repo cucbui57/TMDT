@@ -77,8 +77,8 @@
                                         <label for="receiver_name">Họ tên</label>
                                         <input type="text" class="form-control" id="receiver_name" name="receiver_name" required 
                                         <?php 
-                                            if (isset($_SESSION['isLogin'])){
-                                                echo "value = '".$_SESSION['isLogin']->name . "'";
+                                            if (isset($_SESSION['isLogin'][0])){
+                                                echo "value = '".$_SESSION['isLogin'][0]->name . "'";
                                             }
                                         ?>
                                         >
@@ -89,8 +89,8 @@
                                         <label for="receiver_phone">Số điện thoại</label>
                                         <input type="text" class="form-control" id="receiver_phone" name="receiver_phone" required 
                                         <?php 
-                                            if (isset($_SESSION['isLogin'])){
-                                                echo "value = '".$_SESSION['isLogin']->phone . "'";
+                                            if (isset($_SESSION['isLogin'][0])){
+                                                echo "value = '".$_SESSION['isLogin'][0]->phone . "'";
                                             }
                                         ?>
                                         >
@@ -103,8 +103,8 @@
                                         <label for="receiver_email">Email</label>
                                         <input type="Email" class="form-control" id="receiver_email" name="receiver_email" required 
                                         <?php 
-                                            if (isset($_SESSION['isLogin'])){
-                                                echo "value = '".$_SESSION['isLogin']->email . "'";
+                                            if (isset($_SESSION['isLogin'][0])){
+                                                echo "value = '".$_SESSION['isLogin'][0]->email . "'";
                                             }
                                         ?>
                                         >
@@ -116,7 +116,7 @@
                                     <div class="form-group">
                                         <label for="address">Địa chỉ</label>
                                         <textarea class="form-control" id="receiver_address" name="receiver_address" rows="5" required><?php
-                                            if (isset($_SESSION['isLogin'])){
+                                            if (isset($_SESSION['isLogin'][0])){
                                                 echo $address;
                                             }
                                         ?></textarea>
@@ -160,13 +160,13 @@
                                 if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
                                 echo "disabled"; 
                                 } 
-                                if (isset($_SESSION['isLogin'])){
+                                if (isset($_SESSION['isLogin'][0])){
                                     echo ' type="submit" name="checkout" ';
                                 } else {
                                     echo ' data-toggle="modal" data-target="#login-modal" ';
                                 }
                                 ?>
-                                >Thanh toán <i class="fa fa-chevron-right"></i>
+                                >Đặt hàng <i class="fa fa-chevron-right"></i>
                                 </button>
                             </div>
                         </div>

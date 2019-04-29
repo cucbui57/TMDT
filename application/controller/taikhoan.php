@@ -4,7 +4,7 @@ class Taikhoan extends Controller
 
     public function index()
     {
-    	$user = $_SESSION["isLogin"];
+    	$user = $_SESSION["isLogin"][0];
     	$provinces = $this->model->getAll("tbl_province");
 
         require APP . 'view/_templates/main_header.php';

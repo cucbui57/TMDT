@@ -4,11 +4,11 @@ class Giohang extends Controller
 
     public function index()
     {
-        if(isset($_SESSION['isLogin'])){
-            $province = $this->model->getListById('tbl_province', 'id', $_SESSION['isLogin']->province_id);
-            $district = $this->model->getListById('tbl_district', 'id', $_SESSION['isLogin']->district_id);
-            $ward = $this->model->getListById('tbl_ward', 'id', $_SESSION['isLogin']->ward_id);
-            $address = $_SESSION['isLogin']->address . ", " . $ward[0]->name . ", " . $district[0]->name . ", " . $province[0]->name;
+        if(isset($_SESSION['isLogin'][0])){
+            $province = $this->model->getListById('tbl_province', 'id', $_SESSION['isLogin'][0]->province_id);
+            $district = $this->model->getListById('tbl_district', 'id', $_SESSION['isLogin'][0]->district_id);
+            $ward = $this->model->getListById('tbl_ward', 'id', $_SESSION['isLogin'][0]->ward_id);
+            $address = $_SESSION['isLogin'][0]->address . ", " . $ward[0]->name . ", " . $district[0]->name . ", " . $province[0]->name;
         }
 
         if(isset($_POST["checkout"])){
@@ -35,8 +35,8 @@ class Giohang extends Controller
             $subtotal +=  $value['item']->price * $value['quantity'];
         }
         $user_id = null;
-        if (isset($_SESSION['isLogin'])) {
-            $user_id = $_SESSION['isLogin']->id;
+        if (isset($_SESSION['isLogin'][0])) {
+            $user_id = $_SESSION['isLogin'][0]->id;
         }
         $data = [
             "user_id" => $user_id,

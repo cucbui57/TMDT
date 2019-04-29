@@ -25,7 +25,7 @@ class Sanpham extends Controller
                 $relative_products = $this->model->getRelativeProduct($product->category_id);
                 require APP . 'view/_templates/main_header.php';
                 require APP . 'view/_templates/navbar.php';
-                require APP . 'view/chitiet/index.php';
+                require APP . 'view/sanpham/chitiet.php';
                 require APP . 'view/_templates/side-bar-menu.php';
                 require APP . 'view/_templates/main_footer.php';
             } else{
