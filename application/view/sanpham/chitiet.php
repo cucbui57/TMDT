@@ -39,23 +39,15 @@
                         <p>
                             <h3>Chi tiết sản phẩm</h3>
                             <h4><?php if (isset($product->name)) echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?></h4>
+                            <?php if (isset($product->description)) echo ($product->description); ?>
+                            
+                            <!-- <img src="<?php if (isset($product->image)) echo URL. htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" class="img-responsive" style= "width: 100%; margin: 50px auto;"> -->
                             <blockquote>
                                 <ul>
-                                    <li>Mô tả: <?php if (isset($product->description)) echo htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8'); ?></li>
-                                    <li>Cung cấp kích thước sản phẩm từ size S đến XXXl</li>
+                                    <li>Cung cấp kích thước sản phẩm từ size S đến 3XL</li>
                                     <li>Sản phẩm được may mẫu khi có yêu cầu</li>
                                     <li>Thời gian đáp ứng nhanh chóng</li>
-                                    <li>Xem thêm sản phẩm tương tự tại: <a href="<?php if (isset($product->category)) echo URL."sanpham/". htmlspecialchars($product->category, ENT_QUOTES, 'UTF-8'); ?>">SẢN PHẨM</a></li>
-                                </ul>
-                            </blockquote>
-                            <img src="<?php if (isset($product->image)) echo URL. htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" class="img-responsive" style= "width: 100%; margin: 50px auto;">
-                            <h4>Ưu đãi</h4>
-                            <blockquote>
-                                <ul>
-                                    <li>May mẫu, in thêu logo</li>
-                                    <li>Lấy số đo – phân loại size</li>
-                                    <li>Quản lý mẫu trang phục và mẫu vải cho khách hàng cho các lần bổ sung</li>
-                                    <li>Chế độ bảo hành dài hạn , giải quyết bảo hành sản phẩm nhanh chóng</li>
+                                    <!-- <li>Xem thêm sản phẩm tương tự tại: <a href="<?php if (isset($product->category_id)) echo URL."sanpham/". htmlspecialchars($product->category_id, ENT_QUOTES, 'UTF-8'); ?>">SẢN PHẨM</a></li> -->
                                 </ul>
                             </blockquote>
                             <h4>Quý khách có nhu cầu may đồng phục tại Hà Nội hãy liên hệ với Obaju</a> quý khách sẽ được cung ứng sản phẩm dịch vụ may đồng phục trọn gói nhanh nhất, tiết kiệm và uy tín cao nhất!</h4>

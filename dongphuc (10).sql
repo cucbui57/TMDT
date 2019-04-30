@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2019 at 09:14 AM
+-- Generation Time: Apr 30, 2019 at 12:56 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -52,7 +52,8 @@ INSERT INTO `tbl_category` (`id`, `name`, `description`, `parent_id`, `status`) 
 (9, 'Đồng phục áo bếp', 'dongphucaobep', 8, 0),
 (10, 'Đồng phục phục vụ', 'dongphucphucvu', 8, 0),
 (11, 'Đồng phục quản lý khách sạn nhà hàng', 'dongphucquanlykhachsannhahang', 8, 0),
-(12, 'Đồng phục bếp - tạp dề - mũ bếp', 'dongphucbeptapdemubep', 8, 0);
+(12, 'Đồng phục bếp - tạp dề - mũ bếp', 'dongphucbeptapdemubep', 8, 0),
+(13, 'Đồng phục bếp - tạp dề - mũ bếp', 'dongphucbeptapdemubep', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -806,15 +807,7 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id`, `total`, `date_order`, `receiver_email`, `receiver_name`, `receiver_address`, `receiver_phone`, `status`) VALUES
-(11, 1, 220000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', '5 an hoa mo lao ha dong ha noi', '+84978628330', 3),
-(12, 1, 1060000, '2019-04-27', '', '', '', '', 1),
-(13, NULL, 170000, '2019-04-27', '', '', '', '', 0),
-(14, 1, 470000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'asdasdasd', '+84978628330', 0),
-(15, 1, 1020000, '2019-04-27', 'tl.thang244@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaaaaaaaaaaaa', '+84978628330', 0),
-(16, 1, 120000, '2019-04-27', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '+84978628330', 3),
-(17, NULL, 20000, '2019-04-28', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaa', '+84978628330', 0),
-(18, NULL, 220000, '2019-04-28', 'thangpro96@gmail.com', 'Chu Xuân Thắng', 'aaaaaaaaa', '+84978628330', 0),
-(19, NULL, 220000, '2019-04-28', 'thangpro96@gmail.com', 'Thắng Chu', 'aaaaaaaaaaaa', '0978628330', 0);
+(22, 12, 920000, '2019-04-29', 'admin@admin.com', 'adminaaaaâ', 'HN, Dịch Vọng Hậu, Cầu Giấy, Hà Nộiaaaaaaaa', '0978628330aaaaaaaâ', 1);
 
 -- --------------------------------------------------------
 
@@ -837,17 +830,12 @@ CREATE TABLE `tbl_order_detail` (
 --
 
 INSERT INTO `tbl_order_detail` (`id`, `order_id`, `product_id`, `quantity`, `price`, `size`, `status`) VALUES
-(12, 11, 351, 1, 100000, 'S', 0),
-(13, 11, 351, 1, 100000, 'M', 0),
-(14, 12, 313, 4, 130000, 'S', 0),
-(15, 12, 313, 4, 130000, 'M', 0),
-(16, 13, 350, 1, 150000, 'S', 0),
-(17, 14, 348, 3, 150000, 'L', 0),
-(18, 15, 312, 1, 200000, 'S', 0),
-(19, 15, 312, 4, 200000, 'L', 0),
-(20, 16, 351, 1, 100000, 'S', 0),
-(21, 18, 312, 1, 200000, 'S', 0),
-(22, 19, 311, 1, 200000, 'S', 0);
+(25, 22, 351, 1, 100000, 'S', 0),
+(26, 22, 351, 1, 100000, 'M', 0),
+(27, 22, 351, 1, 100000, 'L', 0),
+(28, 22, 351, 2, 100000, 'XL', 0),
+(29, 22, 351, 2, 100000, '2XL', 0),
+(30, 22, 351, 2, 100000, '3XL', 0);
 
 -- --------------------------------------------------------
 
@@ -860,7 +848,7 @@ CREATE TABLE `tbl_product` (
   `name` varchar(255) NOT NULL,
   `category_id` varchar(255) NOT NULL,
   `price` varchar(50) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -870,7 +858,7 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`id`, `name`, `category_id`, `price`, `description`, `image`, `status`) VALUES
-(1, 'Đồng phục sơ mi kẻ đen 01', '2', '165000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-1.jpg', 0),
+(1, 'Đồng phục sơ mi kẻ đen 01', '2', '165000', '<p><img alt=\"\" src=\"http://localhost/dongphuc/admin/plugins/responsive_filemanager/source/avatar.png\" style=\"height:215px; width:215px\" /></p>\r\n\r\n<p>&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;</p>\r\n', 'img/ao-so-mi-nam/so-mi-nam-1.jpg', 0),
 (2, 'Áo sơ mi nam xanh cộc tay phối cổ 02', '2', '165000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-2.jpg', 0),
 (3, 'Áo sơ mi nam trắng dài tay 03', '2', '175000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-3.jpg', 0),
 (4, 'Áo sơ mi nam trắng dài tay 04', '2', '175000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-4.jpg', 0),
@@ -1195,7 +1183,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `email`, `password`, `gender`, `phone`, `birthday`, `address`, `province_id`, `district_id`, `ward_id`, `role`, `status`) VALUES
-(1, 'Thắng Chu', 'thangpro96@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2, '978628330', '2019-03-31', 'aaa', 1, 2, 40, 0, 0),
+(1, 'Thắng Chu12', 'thangpro96@gmail.com2', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0, '97862833012', '2019-03-02', 'aaa12222222222222222', 31, 303, 11296, 0, 0),
 (2, 'Thắng Chu', 'tl.thang244@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-04-01', 'HV Bưu chính viễn thông', 1, 269, 9580, 0, 0),
 (4, 'Thắng Chu', 'thangpro96+1@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 20, 670, 0, 0),
 (5, 'Thắng Chu', 'thangpro96+2@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 2, 40, 0, 0),
@@ -1204,7 +1192,8 @@ INSERT INTO `tbl_user` (`id`, `name`, `email`, `password`, `gender`, `phone`, `b
 (8, 'Thắng Chu', 'thangpro96+5@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 271, 9676, 0, 0),
 (9, 'Thắng Chu', 'thangpro96+6@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 250, 9016, 0, 0),
 (10, 'Thắng Chu', 'thangpro96+7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 3, 94, 0, 0),
-(11, 'Chu Xuân Thắng', 'thangpro96+8@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2, '+84978628330', '2019-03-31', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 1, 5, 167, 0, 0);
+(12, 'admin', 'admin@admin.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-04-01', 'HNnnn', 1, 5, 167, 1, 0),
+(14, 'Chu Xuân Thắng', 'thangpro96+8@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '978628330', '2019-03-31', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 1, 268, 10117, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12410,7 +12399,7 @@ ALTER TABLE `tbl_ward`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_district`
@@ -12428,19 +12417,19 @@ ALTER TABLE `tbl_image`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_detail`
 --
 ALTER TABLE `tbl_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
 
 --
 -- AUTO_INCREMENT for table `tbl_province`
@@ -12452,7 +12441,7 @@ ALTER TABLE `tbl_province`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_ward`

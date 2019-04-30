@@ -11,6 +11,7 @@
 <script src="<?php echo URL; ?>jquery-ui/jquery-ui.js"></script>
 <script src="<?php echo URL; ?>js/main.js"></script>
 <script src="<?php echo URL; ?>jquery-confirm/dist/jquery-confirm.min.js"></script>
+
 <script>
   function getDistrict(id, tmp, target){
     $("#ward_id").html('<option value="">---Chọn---</option>');
@@ -24,6 +25,8 @@
     });
   }
 </script>
+
+<?php if(isset($user)) { ?>
   <script>
         var myFunc = function() {
       if($("#province_id").val() != ""){
@@ -31,6 +34,7 @@
       }
     }();
   </script>
+<?php } ?>
 
 <script>
     $(document).ready(function() {
@@ -53,6 +57,7 @@
   });
 </script>
 
+<?php if(isset($user)) { ?>
 <script>
   $(document).ready(function() {
       var myFunc2 = function() {
@@ -62,5 +67,29 @@
     }();
     });
 </script>
+<?php } ?>
+
+<!-- 
+<script>
+  var host = window.location.href;//backend
+host = host.split("admin");
+host[0] = host[0] + 'admin/';
+
+  tinymce.init({
+    selector: "textarea",theme: "modern",width: 680,height: 300,
+    plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+         "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+         "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
+   ],
+   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+   toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+   image_advtab: true ,
+   
+     external_filemanager_path:host[0]+"plugins/responsive_filemanager/filemanager/",
+   filemanager_title:"Responsive Filemanager" ,
+     external_plugins: { "filemanager" : host[0]+"plugins/responsive_filemanager/filemanager/plugin.min.js"},
+ });
+</script> -->
 </body>
 </html>

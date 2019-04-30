@@ -12,7 +12,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>dist/css/skins/skin-blue.css">
   <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>jquery-ui/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>jquery-confirm/dist/jquery-confirm.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+  <script src="<?php echo URL; ?>plugins/ckeditor/ckeditor.js"></script>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'> -->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

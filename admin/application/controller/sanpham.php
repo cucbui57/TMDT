@@ -6,7 +6,7 @@ class Sanpham extends Controller
 
     public function index()
     {
-        $products = $this->model->getList($this->table_name);
+        $products = $this->model->getListDesc($this->table_name);
 
         $categorys = array();
         $brands = array();

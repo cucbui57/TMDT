@@ -1,5 +1,8 @@
 var host = window.location.href;//backend
-host = host.split("Admin");
+host = host.split("admin");
+host[0] = host[0] + 'admin/';
+// console.log(host[0]);
+
 tinymce.init({
     selector: '#description',theme: "modern",
     height: "",
@@ -17,7 +20,7 @@ tinymce.init({
     toolbar_items_size: 'small',
     relative_urls: false,
     remove_script_host : false,
-    external_filemanager_path:host[0]+"filemanager/",
+    external_filemanager_path:host[0]+"plugins/responsive_filemanager/filemanager/",
     filemanager_title:"Quan ly file" ,
-    external_plugins: { "filemanager" : host[0]+"filemanager/plugin.min.js"},
+    external_plugins: { "filemanager" : host[0]+"plugins/responsive_filemanager/filemanager/plugin.min.js"},
 });

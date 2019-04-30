@@ -33,8 +33,8 @@
                    </td>
                    <td><?php if (isset($product->category_id)) echo htmlspecialchars($categorys[$i]->name, ENT_QUOTES, 'UTF-8'); ?></td>
                    <td><?php if (isset($product->price)) echo htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8'); ?></td>
-                   <td><img style="max-width: 50px;" src="../public/<?php if (isset($product->image)) echo htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>"></td>
-                   <td width="30%"><?php if (isset($product->description)) echo htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8'); ?></td>
+                   <td><img style="max-width: 100px;" src="<?php echo URL ?>../<?php if (isset($product->image)) echo htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>"></td>
+                   <td width="30%"><div style="height: 150px;overflow: auto;"><?php if (isset($product->description)) echo($product->description); ?></div></td>
                    <td><?php if (isset($product->status)) echo $product->status?"Ẩn":"Hiện"; ?></td>
                     <td>
                         <a href="<?php echo URL . 'sanpham/sua/' . htmlspecialchars($product->id, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-primary btn-xs">Sửa</a>
@@ -66,7 +66,7 @@
           btnClass: 'btn-red',
           action: function(){
 
-              window.location.href="<?php echo URL . 'products/deleteProduct/'?>"+id;
+              window.location.href="<?php echo URL . 'sanpham/xoa/'?>"+id;
           }
         },
         Hủy: function(){

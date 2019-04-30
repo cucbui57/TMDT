@@ -7,37 +7,23 @@
       <form class="form-horizontal" method="post">
         <div class="box-body">
           <div class="form-group">
-            <label for="name_product" class="col-sm-3 control-label">Tên sản phẩm</label>
+            <label for="name" class="col-sm-3 control-label">Tên sản phẩm</label>
             <div class="col-sm-9">
-              <input class="form-control" id="name_product" name="name_product" type="text">
+              <input class="form-control" id="name" name="name" type="text">
             </div>
           </div>
           <div class="form-group">
-            <label for="id_category" class="col-sm-3 control-label">Danh mục</label>
+            <label for="category_id" class="col-sm-3 control-label">Danh mục</label>
             <div class="col-sm-9">
-                <select class="form-control" id="id_category" name="id_category">
+                <select class="form-control" id="category_id" name="category_id">
                   <option>---Chọn---</option>
                 <?php  
                   foreach ($categorys as $category) {
+                    if ($category->parent_id != '0') {
                 ?>
-                  <option value="<?php echo htmlspecialchars($category->id_category, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($category->name_category, ENT_QUOTES, 'UTF-8'); ?></option>
+                  <option value="<?php echo htmlspecialchars($category->id, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($category->name, ENT_QUOTES, 'UTF-8'); ?></option>
                 <?php    
-                  }
-                ?>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="id_brand" class="col-sm-3 control-label">Nhãn hiệu</label>
-            <div class="col-sm-9">
-                <select class="form-control" id="id_brand" name="id_brand">
-                  <option>---Chọn---</option>
-                <?php  
-                  foreach ($brands as $brand) {
-                ?>
-                  <option value="<?php echo htmlspecialchars($brand->id_brand, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($brand->name_brand, ENT_QUOTES, 'UTF-8'); ?></option>
-                <?php    
-                  }
+                  } }
                 ?>
               </select>
             </div>
@@ -49,21 +35,15 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="sale" class="col-sm-3 control-label">Giảm giá(%)</label>
-            <div class="col-sm-9">
-              <input class="form-control" id="sale" name="sale" type="text">
-            </div>
-          </div>
-          <div class="form-group">
             <label for="description" class="col-sm-3 control-label">Miêu tả</label>
             <div class="col-sm-9">
-              <textarea name="description" id="description" rows="6" style="width: 100%; resize: none;" ></textarea>
+              <textarea class="form-control" name="description" id="description" style="width: 100%; resize: none;" ></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="status" class="col-sm-3 control-label">Trạng thái</label>
             <div class="col-sm-9 checkbox">
-              <input class="" id="status" name="status" type="checkbox" value="1" checked style="margin-left: 0px;">
+              <input class="" id="status" name="status" type="checkbox" value="0" checked style="margin-left: 0px;">
             </div>
           </div>
         </div>        
@@ -78,3 +58,11 @@
     </div>
   </div>
 </div>
+
+<script>
+CKEDITOR.replace( 'description' ,{
+  filebrowserBrowseUrl : '<?php echo URL; ?>plugins/responsive_filemanager/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+  filebrowserUploadUrl : '<?php echo URL; ?>plugins/responsive_filemanager/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+  filebrowserImageBrowseUrl : '<?php echo URL; ?>plugins/responsive_filemanager/filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+});
+</script>
