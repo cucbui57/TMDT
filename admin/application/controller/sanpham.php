@@ -29,14 +29,32 @@ class Sanpham extends Controller
         require APP . 'view/_templates/header.php';
         require APP . 'view/products/add.php';
         require APP . 'view/_templates/footer.php';
-
     }
+
     public function setAdd(){
-        if(isset($_POST["addNew"])){
-            $this->model->addNew($this->table_name, $_POST);
-            header('location: ' . URL . 'sanpham/index');
+        if (isset($_POST["addNew"])) {
+            $saveURL = explode('admin', ROOT);
+            $imgURL = $saveURL[0];
+            if(isset($_FILES["image"]) && $_FILES["image"]["name"] !=""){
+                if($_FILES["image"]["type"] =="image/jpeg" || $_FILES["image"]["type"]=="image/jpg" || $_FILES["image"]["type"]=="image/png"){
+                    if($_FILES["image"]["error"]==0){
+                        $locationFile = $_FILES["image"]["tmp_name"];
+                        $name = $_FILES["image"]["name"];
+                        $url_image= $imgURL . "public\img";
+                        if(!is_dir($url_image)) {
+                            mkdir($url_image);
+                        }
+                        $url_image.="\\$name";
+                        move_uploaded_file($locationFile, $url_image);
+                        $_POST['image'] = "img/$name";
+                        $this->model->addNew($this->table_name, $_POST);
+                    }
+                }
+            }
+            header('location: ' . URL . 'sanpham');
         }
     }
+
     public function xoa($id)
     {
         if (isset($id)) {

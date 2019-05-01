@@ -17,7 +17,7 @@ require APP . 'view/_templates/footer-copyright.php';
 	window.addEventListener('load', userInfoGetDistrict);
 
 	function getDistrict(id, tmp){
-		$("#ward_user").html('<option value="">---Chọn---</option>');
+		$("#ward_id").html('<option value="">---Chọn---</option>');
 		$.post("<?php echo URL."dangki/" ?>getDistrict", {'id':id, 'tmp':tmp}, function(data) {
 			$("#district_id").html(data);
 		});
@@ -100,6 +100,4 @@ require APP . 'view/_templates/footer-copyright.php';
     	}, 200);
     });
 </script>
-
-
 </html>

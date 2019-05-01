@@ -4,7 +4,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">Thêm sản phẩm</h3>
       </div>
-      <form class="form-horizontal" method="post">
+      <form class="form-horizontal" method="post" enctype="multipart/form-data">
         <div class="box-body">
           <div class="form-group">
             <label for="name" class="col-sm-3 control-label">Tên sản phẩm</label>
@@ -16,7 +16,7 @@
             <label for="category_id" class="col-sm-3 control-label">Danh mục</label>
             <div class="col-sm-9">
                 <select class="form-control" id="category_id" name="category_id">
-                  <option>---Chọn---</option>
+                  <option value='0'>---Chọn---</option>
                 <?php  
                   foreach ($categorys as $category) {
                     if ($category->parent_id != '0') {
@@ -31,7 +31,13 @@
           <div class="form-group">
             <label for="price" class="col-sm-3 control-label">Giá</label>
             <div class="col-sm-9">
-              <input class="form-control" id="price" name="price" type="text">
+              <input class="form-control" id="price" name="price" type="number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="image" class="col-sm-3 control-label">Ảnh</label>
+            <div class="col-sm-9">
+              <input type="file" id="image" name="image">
             </div>
           </div>
           <div class="form-group">

@@ -28,7 +28,7 @@
           <div class="form-group">
             <label for="phone" class="col-sm-3 control-label">Số điện thoại</label>
             <div class="col-sm-9">
-              <input class="form-control" name="phone" id="phone" type="text" required = "true" value="<?php echo htmlspecialchars($user[0]->phone, ENT_QUOTES, 'UTF-8'); ?>">
+              <input class="form-control" name="phone" id="phone" type="number" required = "true" value="<?php echo htmlspecialchars($user[0]->phone, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
           </div>
           <div class="form-group">

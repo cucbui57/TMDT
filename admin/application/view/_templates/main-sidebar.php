@@ -6,7 +6,7 @@
         <img src="<?php echo URL; ?>dist/img/avatar5.png" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p><?php echo $_SESSION["isLogin"][0]->mail_user;?></p>
+        <p><?php echo $_SESSION["isAdminLogin"][0]->mail_user;?></p>
 
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>

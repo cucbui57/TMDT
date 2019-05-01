@@ -34,11 +34,11 @@
                                     ?>
                                     <tr>
                                         <td>
-                                            <a target="blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>">
+                                            <a target="_blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>">
                                                 <img src="<?php echo URL . $cart['item']->image ?>" alt="<?php echo $cart['item']->name ?>">
                                             </a>
                                         </td>
-                                        <td><a target="blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>"><?php echo $cart['item']->name ?></a>
+                                        <td><a target="_blank" href="<?php echo URL . "sanpham/chitiet/" . $cart['item']->id ?>"><?php echo $cart['item']->name ?></a>
                                         </td>
                                         <td id="size_<?php echo $key ?>" value = "<?php echo $key ?>">
                                             <?php echo $cart['size'] ?>
@@ -101,7 +101,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="receiver_email">Email</label>
-                                        <input type="Email" class="form-control" id="receiver_email" name="receiver_email" required 
+                                        <input type="email" class="form-control" id="receiver_email" name="receiver_email" required 
                                         <?php 
                                             if (isset($_SESSION['isLogin'][0])){
                                                 echo "value = '".$_SESSION['isLogin'][0]->email . "'";
@@ -128,49 +128,50 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="box" id="order-summary">
-                        <div class="box-header">
-                            <h3>Hóa đơn</h3>
-                        </div>
+                    <div id="checkout-cart">
+                        <div class="box" id="order-summary">
+                            <div class="box-header">
+                                <h3>Hóa đơn</h3>
+                            </div>
 
-                        <div class="table-responsive" id="checkout-cart">
-                            <table class="table">
-                                
-                                <tbody>
-                                    <tr>
-                                        <td>Tổng tiền</td>
-                                        <th><?php echo $total ?></th>
-                                    </tr>
-                                    <tr>
-                                        <td>Phí vận chuyển</td>
-                                        <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Tổng tiền</td>
-                                        <th><?php echo $total + $ship?></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>Tổng tiền</td>
+                                            <th><?php echo $total ?></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Phí vận chuyển</td>
+                                            <th><?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { echo $ship = 20000; } else { echo $ship = 0; } ?></th>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Tổng tiền</td>
+                                            <th><?php echo $total + $ship?></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                        <div class="box-footer">
-                            <div class="pull-left">
-                                <button class="btn btn-primary" 
-                                <?php
-                                if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
-                                echo "disabled"; 
-                                } 
-                                if (isset($_SESSION['isLogin'][0])){
-                                    echo ' type="submit" name="checkout" ';
-                                } else {
-                                    echo ' data-toggle="modal" data-target="#login-modal" ';
-                                }
-                                ?>
-                                >Đặt hàng <i class="fa fa-chevron-right"></i>
-                                </button>
+                            <div class="box-footer">
+                                <div class="pull-left">
+                                    <button class="btn btn-primary" 
+                                    <?php
+                                    if(!isset($_SESSION['cart']) || (isset($_SESSION['cart']) && count($_SESSION['cart']) == 0)){ 
+                                    echo "disabled"; 
+                                    } 
+                                    if (isset($_SESSION['isLogin'][0])){
+                                        echo ' type="submit" name="checkout" ';
+                                    } else {
+                                        echo ' data-toggle="modal" data-target="#login-modal" ';
+                                    }
+                                    ?>
+                                    >Đặt hàng <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>

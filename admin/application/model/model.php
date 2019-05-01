@@ -119,12 +119,12 @@ class Model
     }
 
     public function sessionStart(){
-        if(!isset($_SESSION['isLogin'])){
+        if(!isset($_SESSION['isAdminLogin'])){
           header("location:".URL."dangnhap");
         }
     }
     public function Logout(){
-        setcookie('mail_user', "", time() - 3600, "/");
+        setcookie('emailAdmin', "", time() - 3600, "/");
         session_unset(); 
         session_destroy();
     }

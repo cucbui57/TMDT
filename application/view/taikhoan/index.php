@@ -15,11 +15,11 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" required="true" name="email" value="<?php echo $user->email ?>">
+                                <input type="email" disabled class="form-control" required="true" name="email" value="<?php echo $user->email ?>">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="phone">Số điện thoại</label>
-                                <input type="phone" class="form-control" required="true" name="phone" value="<?php echo $user->phone ?>">
+                                <input type="number" class="form-control" required="true" name="phone" value="<?php echo $user->phone ?>">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="birthday">Ngày sinh</label>
@@ -29,10 +29,10 @@
                                 <label for="gender">Giới tính</label>
                                 <div class="radio">
                                     <label class="radio-inline">
-                                      <input type="radio" id="male" name="gender" <?php if ($user->gender == '1') echo "checked"  ?> value="1">Name
+                                      <input type="radio" id="male" name="gender" <?php if ($user->gender == '1') echo "checked"  ?> value="1">Nam
                                     </label>
                                     <label class="radio-inline">
-                                      <input type="radio" id="female" name="gender" <?php if ($user->gender == '2') echo "checked"  ?> value="2">Nữ
+                                      <input type="radio" id="female" name="gender" <?php if ($user->gender == '0') echo "checked"  ?> value="2">Nữ
                                     </label>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 </select>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Cập nhật</button>
+                                <button name="updateList" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Cập nhật</button>
                             </div>
                         </form>
                 </div>

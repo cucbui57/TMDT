@@ -5,8 +5,8 @@ CLass Dangnhap extends Controller{
     protected $key_word = "email";
 
 	function index(){
-        if(isset($_COOKIE['email'])){
-            $_SESSION["isLogin"] =  $this->model->getListById($this->table_name, $this->key_word, $_COOKIE['email']);
+        if(isset($_COOKIE['emailAdmin'])){
+            $_SESSION["isAdminLogin"] =  $this->model->getListById($this->table_name, $this->key_word, $_COOKIE['emailAdmin']);
             return header("location:".URL."trangchu");
         }
         $this->setLogin();
@@ -24,7 +24,7 @@ CLass Dangnhap extends Controller{
 							if(isset($_POST["remember"])){
 								setcookie('email', $email, time() + (86400 * 30), "/");
 							}
-							$_SESSION["isLogin"] = $user;
+							$_SESSION["isAdminLogin"] = $user;
 							return header("location:".URL."trangchu");
 						}
 					}

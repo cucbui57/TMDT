@@ -23,7 +23,7 @@
 										<div class="flipper">
 											<div class="front">
 												<a href="<?php if (isset($product_sp->id)) echo "chitiet/0".htmlspecialchars($product_sp->id, ENT_QUOTES, 'UTF-8');?>">
-													<img src="<?php if (isset($product_sp->image)) echo URL. htmlspecialchars($product_sp->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" style = "width: 100%; background-size: contain;">
+													<img src="<?php if (isset($product_sp->image)) echo URL. htmlspecialchars($product_sp->image, ENT_QUOTES, 'UTF-8'); ?>" alt="" style = "max-width: 100%; background-size: contain;">
 												</a>
 											</div>
 											<div class="back">

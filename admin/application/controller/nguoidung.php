@@ -90,7 +90,8 @@ class Nguoidung extends Controller
             $this->model->updateList($this->table_name, $this->key_word, $id, $_POST);
             header('location: ' . URL . 'nguoidung');
         }
-    }    
+    }
+    
     public function xoa($id)
     {
         if (isset($id)) {

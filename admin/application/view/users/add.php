@@ -34,7 +34,7 @@
           <div class="form-group">
             <label for="phone" class="col-sm-3 control-label">Số điện thoại</label>
             <div class="col-sm-9">
-              <input class="form-control" name="phone" id="phone" type="text" required = "true">
+              <input class="form-control" name="phone" id="phone" type="number" required = "true">
             </div>
           </div>
           <div class="form-group">

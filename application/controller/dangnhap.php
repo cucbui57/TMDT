@@ -24,10 +24,12 @@ CLass Dangnhap extends Controller{
                         if(isset($_POST["remember"])){
                             setcookie('email', $email, time() + (86400 * 30), "/");
                         }
-                        $_SESSION["isLogin"] = $user[0];
+                        $_SESSION["isLogin"] = $user;
                         return header("location:".URL."trangchu");
                     }
                 }
+            } else {
+                return header("location:".URL."dangki");
             }
         }
     }

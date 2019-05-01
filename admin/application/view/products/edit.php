@@ -35,7 +35,7 @@
           <div class="form-group">
             <label for="price" class="col-sm-3 control-label">Giá</label>
             <div class="col-sm-9">
-              <input class="form-control" id="price" name="price" type="text" value="<?php echo htmlspecialchars($product[0]->price, ENT_QUOTES, 'UTF-8'); ?>">
+              <input class="form-control" id="price" name="price" type="number" value="<?php echo htmlspecialchars($product[0]->price, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
           </div>
           <div class="form-group">

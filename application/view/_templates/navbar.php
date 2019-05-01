@@ -30,7 +30,7 @@
                     <form action="<?php echo URL ?>dangnhap" method="post">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
@@ -137,26 +137,6 @@
                     </span>
                 </a>
             </div>
-
-            <div class="navbar-collapse collapse right" id="search-not-mobile">
-                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only"></span>
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-
-        </div>
-
-        <div class="collapse clearfix" id="search">
-
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm">
-                    <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-            </form>
 
         </div>
     </div>

@@ -17,7 +17,7 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" required="true" name="email">
+                                <input type="email" class="form-control" required="true" name="email">
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="password">Mật khẩu</label>
@@ -25,20 +25,20 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="phone">Số điện thoại</label>
-                                <input type="phone" class="form-control" required="true" name="phone">
+                                <input type="number" class="form-control" required="true" name="phone">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="birthday">Ngày sinh</label>
-                                <input type="date" class="form-control" required="true" name="birthday">
+                                <input type="date" class="form-control" required="true" id="birthday" name="birthday">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="gender">Giới tính</label>
                                 <div class="radio">
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" checked value="1">Name
+                                      <input type="radio" id="male" name="gender" checked value="1">Nam
                                     </label>
                                     <label class="radio-inline">
-                                      <input type="radio" id="gender" name="gender" value="2">Nữ
+                                      <input type="radio" id="female" name="gender" value="0">Nữ
                                     </label>
                                 </div>
                             </div>
