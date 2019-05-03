@@ -4,7 +4,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">Sửa sản phẩm</h3>
       </div>
-      <form class="form-horizontal" method="post">
+      <form class="form-horizontal" method="post" enctype="multipart/form-data">
         <div class="box-body">
           <div class="form-group">
             <label for="name" class="col-sm-3 control-label">Tên sản phẩm</label>
@@ -38,6 +38,15 @@
               <input class="form-control" id="price" name="price" type="number" value="<?php echo htmlspecialchars($product[0]->price, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
           </div>
+          
+          <div class="form-group">
+            <label for="image" class="col-sm-3 control-label">Ảnh</label>
+            <div class="col-sm-9">
+              <img style="max-width: 300px" src="<?php echo URL ?>../<?php echo htmlspecialchars($product[0]->image, ENT_QUOTES, 'UTF-8'); ?>">
+              <input type="file" id="image" name="image">
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="description" class="col-sm-3 control-label">Miêu tả</label>
             <div class="col-sm-9">

@@ -38,7 +38,7 @@ class Sanpham extends Controller
     // private $list1 = ['dongphuccongsovanphong', 'aosominam', 'aosominu', 'quanaucongsonamnu', 'chanvayjuypcongso', 'dongphucvestcongsonamnu', 'dongphucghilenamnu'];
     public function dongphuccongsovanphong()
     {
-    	$condition = "category_id = '2' OR category_id = '3' OR category_id = '4' OR category_id = '5' OR category_id = '6' OR category_id = '7'";
+    	$condition = " (category_id = '2' OR category_id = '3' OR category_id = '4' OR category_id = '5' OR category_id = '6' OR category_id = '7') ";
         $title = $this->model->getListById('tbl_category', 'id', 1)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);
@@ -119,7 +119,7 @@ class Sanpham extends Controller
     //private $list2 = ['dongphucnhahangkhachsan', 'dongphucaobep', 'dongphucphucvu', 'dongphucquanlykhachsannhahang', 'dongphucbellbaovekhachsan', 'dongphucbeptapdemubep']
 
     public function dongphucnhahangkhachsan(){
-        $condition = "category_id = '9' OR category_id = '10' OR category_id = '11' OR category_id = '12'";
+        $condition = "(category_id = '9' OR category_id = '10' OR category_id = '11' OR category_id = '12')";
         $title = $this->model->getListById('tbl_category', 'id', 8)[0]->name;
         $total = $this->model->getNum($condition);
         $products = $this->setPagination($condition, $total->num);

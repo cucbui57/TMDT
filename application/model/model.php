@@ -31,7 +31,7 @@ class Model
     }
 
     public function getNewProduct(){
-        $sql = "SELECT * FROM tbl_product ORDER BY id DESC LIMIT 12";
+        $sql = "SELECT * FROM tbl_product WHERE `status` = 0 ORDER BY id DESC LIMIT 12";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();

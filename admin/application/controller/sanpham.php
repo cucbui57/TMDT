@@ -69,21 +69,39 @@ class Sanpham extends Controller
         if (isset($id)) {
             $product = $this->model->getListById($this->table_name, $this->key_word, $id);
             $categorys = $this->model->getList("tbl_category");
-            $this->setEdit($id);
+            $this->setEdit($id, $product);
             
             $this->model->sessionStart();
-        require APP . 'view/_templates/header.php';
+            require APP . 'view/_templates/header.php';
             require APP . 'view/products/edit.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            header('location: ' . URL . 'sanpham/index');
+            header('location: ' . URL . 'sanpham');
         }
     }
 
-    public function setEdit($id){
+    public function setEdit($id, $product){
         if(isset($_POST["updateList"])){
+            $saveURL = explode('admin', ROOT);
+            $imgURL = $saveURL[0];
+            $_POST['image'] = $product[0]->image;
+            if(isset($_FILES["image"]) && $_FILES["image"]["name"] !=""){
+                if($_FILES["image"]["type"] =="image/jpeg" || $_FILES["image"]["type"]=="image/jpg" || $_FILES["image"]["type"]=="image/png"){
+                    if($_FILES["image"]["error"]==0){
+                        $locationFile = $_FILES["image"]["tmp_name"];
+                        $name = $_FILES["image"]["name"];
+                        $url_image= $imgURL . "public\img";
+                        if(!is_dir($url_image)) {
+                            mkdir($url_image);
+                        }
+                        $url_image.="\\$name";
+                        move_uploaded_file($locationFile, $url_image);
+                        $_POST['image'] = "img/$name";
+                    }
+                }
+            }
             $this->model->updateList($this->table_name, $this->key_word, $id, $_POST);
-            header('location: ' . URL . 'sanpham/index');
+            header('location: ' . URL . 'sanpham');
         }
     }  
 }

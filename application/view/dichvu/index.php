@@ -1,7 +1,7 @@
 <div id="all">
     <div id="content">
         <div class="container">
-            <div class="col-md-9 col-sm-8 pull-right" style="z-index:3" id="blog-listing">
+            <div class="col-xs-12 pull-right" style="z-index:3" id="blog-listing">
 
                 <div class="post">
                     <h2><a href="<?php echo URL."dichvu/huongdandathang" ?>">Hướng dẫn đặt hàng</a></h2>
@@ -52,56 +52,3 @@
 
 
                     </div>
-                    <!-- /.col-md-9 -->
-
-
-
-                    <div class="col-md-3 col-sm-4">
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Trang</h3>
-                            </div>
-
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li>
-                                        <a href="<?php echo URL ?>trangchu">Trang chủ</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo URL ?>sanpham">Sản phẩm</a>
-                                    </li>
-                                    <li class="<?php if($this->url_active[1] == 'dichvu') echo 'active' ?>">
-                                        <a href="<?php echo URL ?>dichvu">Dịch vụ</a>
-                                    </li>
-                                    <li class="<?php if($this->url_active[1] == 'baogia') echo 'active' ?>">
-                                        <a href="<?php echo URL ?>baogia">Báo giá</a>
-                                    </li>
-                                    <li class="<?php if($this->url_active[1] == 'lienhe') echo 'active' ?>">
-                                        <a href="<?php echo URL ?>lienhe">Liên hệ</a>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="banner col-xs-6 col-sm-12">
-                                <a href="<?php echo URL."dichvu/huongdandathang" ?>">
-                                    <img src="<?php echo URL ?>img/banner.png" alt="Hướng dẫn đặt hàng" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="banner col-xs-6 col-sm-12">
-                                <a href="<?php echo URL."dichvu/huongdandovachonsize" ?>">
-                                    <img src="<?php echo URL ?>img/banner2.png" alt="Hướng dẫn đặt hàng" class="img-responsive">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <!-- /.container -->
-            </div>

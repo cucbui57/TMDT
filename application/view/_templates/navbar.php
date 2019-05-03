@@ -117,6 +117,7 @@
                         </li>
                     </ul>
                 </li>
+                <li class="<?php if($this->url_active[2] == "" || $this->url_active[2] == "dichvu") echo "active" ?>"><a href="<?php echo URL ?>dichvu">dịch vụ</a></li>
             </ul>
         </div>
 
