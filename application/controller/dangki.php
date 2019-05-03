@@ -20,7 +20,7 @@ class Dangki extends Controller
                 $_POST['password'] = sha1($_POST['password']);
                 $register = $this->model->addNew('tbl_user', $_POST);
                 $user = $this->model->getListById('tbl_user', 'email', $_POST['email']);
-                $_SESSION["isLogin"] = $user[0];
+                $_SESSION["isLogin"] = $user;
                 header("Location:".URL."trangchu");
             } else {
                 echo "<script> alert('Email đã tồn tại, không thể tạo tài khoản!');

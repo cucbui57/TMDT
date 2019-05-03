@@ -69,6 +69,6 @@
             </div>
             <div class="pages">
                 <p class="loadMore">
-                    <a href="<?php echo URL ?>sanpham/dongphuccongsovanphong" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Xem thêm</a>
+                    <a href="<?php echo URL ?>sanpham/danhmuc/<?php echo $category_parents[0]->description ?>" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Xem thêm</a>
                 </p>
             </div>

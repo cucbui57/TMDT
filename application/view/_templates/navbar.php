@@ -87,9 +87,9 @@
 
         <div class="navbar-collapse collapse" id="navigation">
             <ul class="nav navbar-nav navbar-left">
-                <li class="<?php if($this->url_active[2] == "" || $this->url_active[2] == "trangchu") echo "active" ?>"><a href="<?php echo URL ?>trangchu">trang chủ</a></li>
-                <li class="dropdown yamm-fw <?php if($this->url_active[2] == "sanpham") echo "active"?>">
-                    <a href="<?php echo URL."sanpham" ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">sản phẩm <b class="caret"></b></a>
+                <li class="<?php if($this->url_active[0] == "" || $this->url_active[0] == "trangchu") echo "active" ?>"><a href="<?php echo URL ?>trangchu">trang chủ</a></li>
+                <li class="dropdown yamm-fw <?php if($this->url_active[0] == "sanpham") echo "active"?>">
+                    <a href="<?php echo URL."sanpham/danhmuc" ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">sản phẩm <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="yamm-content">
@@ -103,11 +103,11 @@
                                             $category_childs = $this->model->getCategory($condition);
                                         ?>
                                         <div class="col-sm-3">
-                                            <h5><a href="<?php echo URL ?>sanpham/<?php echo $category_parent->description ?>"><?php echo $category_parent->name ?></a></h5>
+                                            <h5><a href="<?php echo URL ?>sanpham/danhmuc/<?php echo $category_parent->description ?>"><?php echo $category_parent->name ?></a></h5>
                                             <ul>
                                                 <?php foreach ($category_childs as $category_child) {
                                                 ?>
-                                                <li><a href="<?php echo URL ?>sanpham/<?php echo $category_child->description ?>"><?php echo $category_child->name ?></a>
+                                                <li><a href="<?php echo URL ?>sanpham/danhmuc/<?php echo $category_child->description ?>"><?php echo $category_child->name ?></a>
                                                 <?php } ?>
                                             </ul>
                                         </div>
@@ -117,7 +117,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="<?php if($this->url_active[2] == "" || $this->url_active[2] == "dichvu") echo "active" ?>"><a href="<?php echo URL ?>dichvu">dịch vụ</a></li>
+                <li class="<?php if($this->url_active[0] == "dichvu") echo "active" ?>"><a href="<?php echo URL ?>dichvu">dịch vụ</a></li>
             </ul>
         </div>
 

@@ -18,19 +18,32 @@ class Danhmuc extends Controller
     public function them()
     {
         $this->setAdd();
-        $categorys = $this->model->getList($this->table_name);
+        $categorys = $this->model->getList('tbl_category');
         
         $this->model->sessionStart();
         require APP . 'view/_templates/header.php';
         require APP . 'view/categorys/add.php';
         require APP . 'view/_templates/footer.php';
-
     }
+
     public function setAdd(){
         if(isset($_POST["addNew"])){
+            $_POST['description'] = $this->slugify($_POST['name']);
             $this->model->addNew($this->table_name, $_POST);
             header('location: ' . URL . 'danhmuc');
         }
+    }
+
+    public function slugify($text)
+    {
+      $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+      $text = preg_replace('~-+~', '-', $text);
+      $text = mb_strtolower($text);
+      if (empty($text)) {
+        return 'n-a';
+      }
+
+      return $text;
     }
     public function xoa($id)
     {

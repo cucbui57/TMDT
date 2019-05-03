@@ -55,14 +55,15 @@ class Controller
         $this->model = new Model($this->db);
     }
     public function loadActive(){
-      $url =  "{$_SERVER['REQUEST_URI']}";
-      $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
-      $this->url_active = explode("/",$url);
-      if(isset($this->url_active[3])){
-        $temp = explode("?",$this->url_active[3]);
-        $this->url_active[3] = $temp[0];
-        unset($temp);
-      }
-      
+      if (isset($_GET['url'])) {
+        $url =  trim($_GET['url'], '/');
+        $escaped_url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8' );
+        $this->url_active = explode("/",$url);
+        if(isset($this->url_active[2])){
+          $temp = explode("?",$this->url_active[2]);
+          $this->url_active[2] = $temp[0];
+          unset($temp);
+        }
+      } 
     }
 }

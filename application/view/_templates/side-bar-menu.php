@@ -18,12 +18,12 @@
                         $category_childs = $this->model->getCategory($condition);
                     ?>
                     
-                    <li class="<?php if($this->url_active[3] == $category_parent->description) echo 'active' ?>">
-                        <a href="<?php echo URL ?>sanpham/<?php echo $category_parent->description ?>"><?php echo $category_parent->name ?></a>
+                    <li class="<?php if($this->url_active[2] == $category_parent->description) echo 'active' ?>">
+                        <a href="<?php echo URL ?>sanpham/danhmuc/<?php echo $category_parent->description ?>"><?php echo $category_parent->name ?></a>
                         <ul>
                             <?php foreach ($category_childs as $category_child) {
                             ?>
-                            <li class="<?php if($this->url_active[3] == $category_child->description || $caty == $category_child->id) echo 'active' ?>"><a href="<?php echo URL ?>sanpham/<?php echo $category_child->description ?>"><?php echo $category_child->name ?></a>
+                            <li class="<?php if($this->url_active[2] == $category_child->description || $caty == $category_child->id) echo 'active' ?>"><a href="<?php echo URL ?>sanpham/danhmuc/<?php echo $category_child->description ?>"><?php echo $category_child->name ?></a>
                             </li>
                             <?php } ?>
                         </ul>

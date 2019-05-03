@@ -16,7 +16,7 @@ class Model
         $limit = (string)((int)$limit);
         $limit = $limit - 1;
         $limit = $limit*9;
-        $sql = "SELECT * FROM tbl_product WHERE $condition AND `status` = 0 ORDER BY id DESC LIMIT $limit, 9";
+        $sql = "SELECT p.*, c.name as category_name FROM tbl_product as p, tbl_category as c WHERE $condition AND p.category_id = c.id AND p.`status` = 0 AND c.`status` = 0 ORDER BY id DESC LIMIT $limit, 9";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
@@ -38,7 +38,7 @@ class Model
     }
 
     public function getNum($condition){
-        $sql = "SELECT COUNT(*) as num FROM tbl_product WHERE $condition AND `status` = 0";
+        $sql = "SELECT COUNT(*) as num FROM tbl_product as p, tbl_category as c WHERE $condition AND p.category_id = c.id AND p.`status` = 0 AND c.`status` = 0";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetch();

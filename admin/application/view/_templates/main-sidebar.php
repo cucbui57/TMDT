@@ -77,7 +77,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo URL; ?>danhmuc">Danh sách</a></li>
-          <!-- <li><a href="<?php echo URL; ?>categorys/addcategory">Thêm mới</a></li> -->
+          <li><a href="<?php echo URL; ?>danhmuc/them">Thêm mới</a></li>
         </ul>
       </li>
       <!-- <li class="treeview <?php if($this->url_active[3] == "brands") echo "active"; ?>">
