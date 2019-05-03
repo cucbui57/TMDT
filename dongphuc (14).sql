@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2019 at 11:56 AM
+-- Generation Time: May 03, 2019 at 06:30 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -41,18 +41,18 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id`, `name`, `description`, `parent_id`, `status`) VALUES
-(1, 'Đồng phục công sở - văn phòng', 'dongphuccongsovanphong', 0, 0),
-(2, 'Áo sơ mi nam', 'aosominam', 1, 0),
-(3, 'Áo sơ mi nữ', 'aosominu', 1, 0),
-(4, 'Quần âu công sở nam nữ', 'quanaucongsonamnu', 1, 0),
-(5, 'Chân váy - juyp công sở', 'chanvayjuypcongso', 1, 0),
-(6, 'Đồng phục vest công sở nam nữ', 'dongphucvestcongsonamnu', 1, 0),
-(7, 'Đồng phục ghile nam nữ', 'dongphucghilenamnu', 1, 0),
-(8, 'Đồng phục nhà hàng khách sạn', 'dongphucnhahangkhachsan', 0, 0),
-(9, 'Đồng phục áo bếp', 'dongphucaobep', 8, 0),
-(10, 'Đồng phục phục vụ', 'dongphucphucvu', 8, 0),
-(11, 'Đồng phục quản lý khách sạn nhà hàng', 'dongphucquanlykhachsannhahang', 8, 0),
-(12, 'Đồng phục bếp - tạp dề - mũ bếp', 'dongphucbeptapdemubep', 8, 0);
+(1, 'Đồng phục công sở - văn phòng', 'đồng-phục-công-sở-văn-phòng', 0, 0),
+(2, 'Áo sơ mi nam', 'áo-sơ-mi-nam', 1, 0),
+(3, 'Áo sơ mi nữ', 'áo-sơ-mi-nữ', 1, 0),
+(4, 'Quần âu công sở nam nữ', 'quần-âu-công-sở-nam-nữ', 1, 0),
+(5, 'Chân váy - juyp công sở', 'chân-váy-juyp-công-sở', 1, 0),
+(6, 'Đồng phục vest công sở nam nữ', 'đồng-phục-vest-công-sở-nam-nữ', 1, 0),
+(7, 'Đồng phục ghile nam nữ', 'đồng-phục-ghile-nam-nữ', 1, 0),
+(8, 'Đồng phục nhà hàng khách sạn', 'đồng-phục-nhà-hàng-khách-sạn', 0, 0),
+(9, 'Đồng phục áo bếp', 'đồng-phục-áo-bếp', 8, 0),
+(10, 'Đồng phục phục vụ', 'đồng-phục-phục-vụ', 8, 0),
+(11, 'Đồng phục quản lý khách sạn nhà hàng', 'đồng-phục-quản-lý-khách-sạn-nhà-hàng', 8, 0),
+(12, 'Đồng phục bếp - tạp dề - mũ bếp', 'đồng-phục-bếp-tạp-dề-mũ-bếp', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -806,7 +806,8 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id`, `total`, `date_order`, `receiver_email`, `receiver_name`, `receiver_address`, `receiver_phone`, `status`) VALUES
-(22, 12, 920000, '2019-04-29', 'admin@admin.com', 'adminaaaaâ', 'HN, Dịch Vọng Hậu, Cầu Giấy, Hà Nộiaaaaaaaa', '0978628330aaaaaaaâ', 1);
+(22, 12, 920000, '2019-04-29', 'admin@admin.com', 'adminaaaaâ', 'HN, Dịch Vọng Hậu, Cầu Giấy, Hà Nộiaaaaaaaa', '0978628330aaaaaaaâ', 1),
+(23, 16, 220000, '2019-05-03', 'thangpro96+11@gmail.com', 'Chu Xuân Thắng', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông, Hàng Buồm, Hoàn Kiếm, Hà Nội', '0978628330', 0);
 
 -- --------------------------------------------------------
 
@@ -834,7 +835,8 @@ INSERT INTO `tbl_order_detail` (`id`, `order_id`, `product_id`, `quantity`, `pri
 (27, 22, 351, 1, 100000, 'L', 0),
 (28, 22, 351, 2, 100000, 'XL', 0),
 (29, 22, 351, 2, 100000, '2XL', 0),
-(30, 22, 351, 2, 100000, '3XL', 0);
+(30, 22, 351, 2, 100000, '3XL', 0),
+(31, 23, 311, 1, 200000, 'S', 0);
 
 -- --------------------------------------------------------
 
@@ -857,7 +859,7 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`id`, `name`, `category_id`, `price`, `description`, `image`, `status`) VALUES
-(1, 'Đồng phục sơ mi kẻ đen 01', '2', '165000', '<p><img alt=\"\" src=\"http://localhost/dongphuc/admin/plugins/responsive_filemanager/source/avatar.png\" style=\"height:215px; width:215px\" /></p>\r\n\r\n<p>&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;</p>\r\n', 'img/ao-so-mi-nam/so-mi-nam-1.jpg', 0),
+(1, 'Đồng phục sơ mi kẻ đen 01', '2', '165000', '<p><img alt=\"\" src=\"http://localhost/dongphuc/admin/plugins/responsive_filemanager/source/avatar.png\" style=\"height:215px; width:215px\" /></p>\r\n\r\n<p>&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;&aacute;o sơ mi nam&nbsp;</p>\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n', 'img/ao-so-mi-nam/so-mi-nam-1.jpg', 0),
 (2, 'Áo sơ mi nam xanh cộc tay phối cổ 02', '2', '165000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-2.jpg', 0),
 (3, 'Áo sơ mi nam trắng dài tay 03', '2', '175000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-3.jpg', 0),
 (4, 'Áo sơ mi nam trắng dài tay 04', '2', '175000', 'áo sơ mi nam', 'img/ao-so-mi-nam/so-mi-nam-4.jpg', 0),
@@ -1072,7 +1074,7 @@ INSERT INTO `tbl_product` (`id`, `name`, `category_id`, `price`, `description`, 
 (349, 'Đồng phục vest nữ 18', '6', '150000', 'đồng phục vest công sở', 'img/dong-phuc-vest-cong-so-nam-nu/vest-nu-18.jpg', 0),
 (350, 'Đồng phục vest nữ 19', '6', '150000', 'đồng phục vest công sở', 'img/dong-phuc-vest-cong-so-nam-nu/vest-nu-19.jpg', 0),
 (351, 'Sơ mi công sở nữ 21', '3', '100000', 'áo sơ mi nữ', 'img/ao-so-mi-nu/so-mi-nu-21.jpg', 0),
-(352, 'Sơ mi công sở nữ 22', '3', '110000', 'áo sơ mi nữ', 'img/ao-so-mi-nu/so-mi-nu-22.jpg', 0);
+(352, 'Sơ mi công sở nữ 22', '3', '110000', '<p>&aacute;o sơ mi nữ22222222222</p>\r\n', 'img/so-mi-nu-22.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -1182,7 +1184,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `email`, `password`, `gender`, `phone`, `birthday`, `address`, `province_id`, `district_id`, `ward_id`, `role`, `status`) VALUES
-(1, 'Thắng Chu121111', 'thangpro96@gmail.com2', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2, '97862833012', '2019-03-02', 'aaa12222222222222222', 31, 303, 11296, 0, 0),
+(1, 'Thắng Chu121111', 'thangpro96@gmail.com2', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '97862833012', '2019-03-02', 'aaa12222222222222222', 31, 303, 11296, 0, 0),
 (2, 'Thắng Chu', 'tl.thang244@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-04-01', 'HV Bưu chính viễn thông', 1, 269, 9580, 0, 0),
 (4, 'Thắng Chu', 'thangpro96+1@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 20, 670, 0, 0),
 (5, 'Thắng Chu', 'thangpro96+2@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 2, 40, 0, 0),
@@ -1192,7 +1194,9 @@ INSERT INTO `tbl_user` (`id`, `name`, `email`, `password`, `gender`, `phone`, `b
 (9, 'Thắng Chu', 'thangpro96+6@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 250, 9016, 0, 0),
 (10, 'Thắng Chu', 'thangpro96+7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-03-31', 'HV Bưu chính viễn thông', 1, 3, 94, 0, 0),
 (12, 'admin', 'admin@admin.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2, '0978628330', '2019-04-01', 'HNnnn', 1, 5, 167, 1, 0),
-(14, 'Chu Xuân Thắn', 'thangpro96+8@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '978628330', '2019-03-31', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 26, 252, 9130, 0, 0);
+(14, 'Chu Xuân Thắn', 'thangpro96+8@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '978628330', '2019-03-31', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 26, 252, 9130, 0, 0),
+(15, 'Chu Xuân Thắng', 'thangpro96+10@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-04-28', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 1, 2, 40, 0, 0),
+(16, 'Chu Xuân Thắng', 'thangpro96+11@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, '0978628330', '2019-04-28', 'số 5 phố An Hòa, Mộ Lao, Nguyễn Trãi, Hà Đông', 1, 2, 46, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -12398,7 +12402,7 @@ ALTER TABLE `tbl_ward`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_district`
@@ -12422,13 +12426,13 @@ ALTER TABLE `tbl_order`
 -- AUTO_INCREMENT for table `tbl_order_detail`
 --
 ALTER TABLE `tbl_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- AUTO_INCREMENT for table `tbl_province`
@@ -12440,7 +12444,7 @@ ALTER TABLE `tbl_province`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_ward`
